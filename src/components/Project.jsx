@@ -76,10 +76,10 @@ const Project = () => {
           </p>
         </div>
         <div className="flex justify-center mb-5">
-          <a href='https://text-controller.vercel.app/' className="bg-rose-300 px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150 mx-3">
+          <a href='https://text-controller.vercel.app/' target="_blank" className="bg-rose-300 px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150 mx-3">
             View Website
           </a>
-          <a href='https://github.com/kyawminht/text_controller' className="bg-rose-300 px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150">
+          <a href='https://github.com/kyawminht/text_controller' target="_blank"  className="bg-rose-300 px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150">
             View on GitHub
           </a>
         </div>

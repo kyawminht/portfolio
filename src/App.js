@@ -7,7 +7,7 @@ import Nav from './components/Nav';
 import Project from './components/Project';
 import Skill from './components/Skill';
 import Foot from './components/Foot';
-import { Route, Routes } from 'react-router-dom';
+
 
 
 function App() {
