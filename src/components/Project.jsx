@@ -1,7 +1,7 @@
 import React from 'react'
 import EImage from '../assets/e-commerce.png'
 import PImage1 from '../assets/p2.png'
-import PImage2 from '../assets/text_controller.png'
+import PImage2 from '../assets/pokemondocs.png'
 
 
 const Project = () => {
@@ -70,16 +70,16 @@ const Project = () => {
           />
         </div>
         <div className="p-6">
-        <h6 className="text-xl font-bold">Text controller with pure JavaScript</h6>
+        <h6 className="text-xl font-bold">Pokemon API documentation project</h6>
           <p className="text-base text-neutral-600 dark:text-neutral-200">
-           This is the small project to practice JavaScript DOM manipulation. In this project, User can text and he also can chage color, text size and font family.
+          I developed a simple Pokémon API with Laravel. At the same time, I got an idea to develop a website for API documentation with React.
           </p>
         </div>
         <div className="flex justify-center mb-5">
-          <a href='https://text-controller.vercel.app/' target="_blank" className="bg-rose-300 px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150 mx-3">
+          <a href='https://pokemon-api-docs.vercel.app/docs' target="_blank" className="bg-rose-300 px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150 mx-3">
             View Website
           </a>
-          <a href='https://github.com/kyawminht/text_controller' target="_blank"  className="bg-rose-300 px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150">
+          <a href='https://github.com/kyawminht/pokemon_api_docs' target="_blank"  className="bg-rose-300 px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150">
             View on GitHub
           </a>
         </div>
