@@ -12,7 +12,7 @@ import Foot from './components/Foot';
 
 function App() {
   return (
-    <div className="App bg-indigo-600">
+    <div className="App dark:bg-slate-800">
       <Nav/>
       <Hero/>
       <Project/>

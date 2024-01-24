@@ -18,3 +18,16 @@ code {
 html {
   scroll-behavior: smooth;
 }
+
+.active {
+  color: blue;
+}
+
+
+.font{
+  color: #333333;
+}
+
+.navbar{
+  color:#333333 ;
+}
