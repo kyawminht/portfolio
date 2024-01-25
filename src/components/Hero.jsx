@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroImg from '../assets//profile-pic (1).png';
+import HeroImg from '../assets/pro.jpg';
 const Hero = () => {
   return (
     <section className=' scroll-smooth flex flex-col sm:flex-row justify-center items-center p-10 mt-5 space-x-10 ' id='about'>
@@ -9,7 +9,7 @@ const Hero = () => {
         <p className="font font-semibold dark:text-white">A passionate and dedicated software developer with a love for creating innovative solutions. I specialize in web development, bringing ideas to life through code and design. Explore my portfolio and discover the possibilities!</p>
       </div>
       <div className=' flex-1'>
-        <img src={HeroImg} alt="" width={200} height={200} className=' rounded-full w-full border-8 border-white'/>
+        <img src={HeroImg} alt="" width={200} height={50} className=' rounded-full w-full border-8 border-white'/>
       </div>
       <div className=' flex-1'>
         <h2 className="text-4xl mb-5 font font-bold dark:text-white font-serif">About Me</h2>
