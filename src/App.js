@@ -7,6 +7,7 @@ import Nav from './components/Nav';
 import Project from './components/Project';
 import Skill from './components/Skill';
 import Foot from './components/Foot';
+import Intro from './components/Intro';
 
 
 
@@ -17,6 +18,7 @@ function App() {
       <Hero/>
       <Project/>
       <Skill/>
+      <Intro/>
       <Contact/>
       <Foot/>
     </div>

@@ -9,7 +9,7 @@ const Project = () => {
   return (
     <div className=" mb-5 scroll-smooth" id='project'>
     <div className="grid justify-center m-10">
-      <p className=" text-red-500 dark:text-white">Glimpse into My Work</p>
+      <p className=" text-red-500 dark:text-white text-2xl">Glimpse into My Work</p>
       <h4 className="text-3xl font-bold  font dark:text-white mt-10 font-serif">Projects</h4>
     </div>
     <div className="container mx-auto flex flex-col sm:flex-row justify-center gap-10 ">
@@ -30,10 +30,10 @@ const Project = () => {
           </p>
         </div>
         <div className="flex justify-center mb-5">
-          <a href="https://kmh.shwemmhost.com/" target="_blank" rel="noreferrer" className=" bg-green-500 text-white px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150 mx-3">
+          <a href="https://kmh.shwemmhost.com/" target="_blank" rel="noreferrer" className=" bg-red-500 text-white font-serif font-extrabold px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150 mx-3">
             View Website
           </a>
-          <a href='https://github.com/kyawminht/e-commerce' rel="noreferrer" target="_blank" className=" bg-green-500 text-white px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150">
+          <a href='https://github.com/kyawminht/e-commerce' rel="noreferrer" target="_blank" className=" bg-red-500 text-white font-serif font-extrabold px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150">
             View on GitHub
           </a>
         </div>
@@ -53,10 +53,10 @@ const Project = () => {
           </p>
         </div>
         <div className="flex justify-center mb-5">
-          <a href='https://simple-cart-management-vvhz.vercel.app/' rel="noreferrer" target="_blank" className="bg-green-500 text-white px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150 mx-3">
+          <a href='https://simple-cart-management-vvhz.vercel.app/' rel="noreferrer" target="_blank" className="bg-red-500 text-white font-serif font-extrabold px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150 mx-3">
             View Website
           </a>
-          <a href="https://github.com/kyawminht/simple-cart-management/blob/main/README.md" rel="noreferrer" target="_blank" className="bg-green-500 text-white px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150">
+          <a href="https://github.com/kyawminht/simple-cart-management/blob/main/README.md" rel="noreferrer" target="_blank" className="bg-red-500 font-serif font-extrabold text-white px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150">
             View on GitHub
           </a>
         </div>
@@ -78,10 +78,10 @@ const Project = () => {
         </div>
         
         <div className="flex justify-center mb-5">
-          <a href='https://pokemon-api-docs.vercel.app/docs' target="_blank" rel="noreferrer" className="bg-green-500 text-white px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150 mx-3">
+          <a href='https://pokemon-api-docs.vercel.app/docs' target="_blank" rel="noreferrer" className="bg-red-500 font-serif font-extrabold text-white px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150 mx-3">
             View Website
           </a>
-          <a href='https://github.com/kyawminht/pokemon_api_docs' target="_blank" rel="noreferrer"  className="bg-green-500 text-white px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150">
+          <a href='https://github.com/kyawminht/pokemon_api_docs' target="_blank" rel="noreferrer"  className="bg-red-500 font-serif font-extrabold text-white px-4 p-5 rounded-md shadow-md hover:scale-105 duration-150">
             View on GitHub
           </a>
         </div>

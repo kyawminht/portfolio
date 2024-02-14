@@ -10,7 +10,7 @@ const Skill = () => {
   return (
     <div className=" mb-5 scroll-smooth" id="skill">
       <div className="grid justify-center m-10">
-        <span className=" text-red-500 dark:text-white">Learn About My Skill Diversity</span>
+        <span className=" text-red-500 dark:text-white text-2xl">Learn About My Skill Diversity</span>
         <h4 className="text-3xl font-bold  font dark:text-white mt-10 font-serif">Skills</h4>
       </div>
       <div className=" flex flex-col sm:flex-row container mx-auto text-white gap-10">
