@@ -23,19 +23,19 @@ const Hero = () => {
         <p className=' font-bold mb-5 font dark:text-white'>A web developer with over a year of focused study in the field. I hold a Level 3 Foundation Diploma in Computing from Pearson BTECH and am currently enrolled in the Level 4 Diploma program, further enhancing my knowledge and skills.</p>
 
         <div className=' flex justify-center'>
-       <a href={linkedinProfileUrl} target="_blank" rel="noopener noreferrer"  className=" rounded-full bg-slate-200 hover:scale-150 duration-75 transition-all m-3 cursor-pointer">
+       <a href={linkedinProfileUrl} target="_blank" rel="noopener noreferrer"  className=" rounded-full bg-slate-200 hover:scale-150 transition-all m-3 cursor-pointer animate__animated animate__fadeInRight duration-200 ">
      
-       <FaLinkedin className="text-5xl p-3" />
+       <FaLinkedin className="text-5xl p-3 " />
    
        
        </a>
 
-       <div className=" rounded-full bg-slate-200 hover:scale-150 duration-75 transition-all m-3 cursor-pointer">
-       <TfiEmail className=' text-5xl p-3' onClick={handleClick}/>
+       <div className=" rounded-full bg-slate-200 hover:scale-150 transition-all m-3 cursor-pointer animate__animated animate__fadeInRight duration-200">
+       <TfiEmail className=' text-5xl p-3 ' onClick={handleClick}/>
        </div>
         </div>
-        <div className=" flex justify-center rounded-lg bg-red-500 hover:scale-105 duration-150 transition-all m-3 mx-auto w-[150px]">
-       <a href="#intro" className=' p-4 text-white font-serif font-extrabold text-center'>Intro Video</a>
+        <div className=" flex justify-center rounded-lg bg-red-500 m-3 mx-auto w-[150px] animate__animated animate__fadeInRight duration-200 hover:scale-200">
+       <a href="#intro" className=' p-4 text-white font-serif font-extrabold text-center '>Intro Video</a>
        </div>
 
       </div>

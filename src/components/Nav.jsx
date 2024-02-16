@@ -65,7 +65,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <Navbar rounded className={` rounded ${isSticky ? ' bg-slate-800 sticky top-0 shadow-md' : 'bg-slate-800'}`}>
+    <Navbar rounded className={` z-10 rounded ${isSticky ? ' bg-slate-800 sticky top-0 shadow-md' : 'bg-slate-800'}`}>
       <NavbarBrand >
         <span className="self-center whitespace-nowrap text-xl font-semibold text-white">My Portfolio</span> 
       </NavbarBrand>

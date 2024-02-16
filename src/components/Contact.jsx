@@ -98,9 +98,9 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className=" bg-red-500 py-3 font-serif font-extrabold px-5 text-sm text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              className=" bg-red-500 py-3 font-serif font-extrabold px-5 text-sm text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:scale-110 duration-200"
             >
-              Send message
+              Send Message
             </button>
           </form>
         </div>
