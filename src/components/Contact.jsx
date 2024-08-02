@@ -1,110 +1,57 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import Swal from "sweetalert2";
+import React, { useState } from "react";
+
+import ContactImage from '../assets/contact1.png';
 
 const Contact = () => {
-  const form = useRef();
+  const [tooltipVisible, setTooltipVisible] = useState(false);
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_qx270pj",
-        "template_nt63ix6",
-        form.current,
-        "nJGHQk8B1oK3KBLm5"
-      )
-      .then((result) => {
-        console.log(result.text);
-        // Display SweetAlert2 success message
-        Swal.fire({
-          title: "Good job!",
-          text: "Message sent successfully!",
-          icon: "success",
-        });
-      })
-      .catch((error) => {
-        console.log(error.text);
-      });
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setTooltipVisible(true);
+      setTimeout(() => {
+        setTooltipVisible(false);
+      }, 2000); // Tooltip will disappear after 2 seconds
+    }, (err) => {
+      console.error('Failed to copy: ', err);
+    });
   };
-
   return (
-    <div className="mt-5 scroll-smooth" id="contact">
-      <div className="grid justify-center m-10">
-        <span className="text-red-500 dark:text-white text-2xl">
-          I am ready to be hired
-        </span>
-        <h4 className="text-3xl font-bold font dark:text-white mt-10 font-serif">
-          Hire Me
-        </h4>
-      </div>
+    <div className="my-5 scroll-smooth" id="contact">
+       <div className="flex flex-col sm:flex-row ">
+          <div className=" sm:ml-[200px] sm:w-[8000px]">
+            <div className=" bg-green-400 sm:w-[400px] h-[500px] relative z-0"></div>
+            <img src={ContactImage} alt="" className=" w-[400px] h-[500px] absolute z-10  bottom-[-2216px] left-[239px]" />
+          </div>
 
-      <section className="bg-indigo-300 dark:bg-gray-900 rounded-lg shadow-lg mx-auto container sm:w-1/2 w-full mb-10">
-        <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-          <form
-            action="#"
-            className="space-y-8"
-            ref={form}
-            onSubmit={sendEmail}
-          >
-            <div>
-              <label
-                htmlFor="email"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
-                {" "}
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                placeholder="example@gmail.com"
-                name="user_email"
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="subject"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                placeholder="Subject...."
-                name="subject"
-                required
-              />
-            </div>
-            <div class="sm:col-span-2">
-              <label
-                htmlFor="message"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows="6"
-                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                name="message"
-                placeholder="Leave a comment..."
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className=" bg-red-500 py-3 font-serif font-extrabold px-5 text-sm text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:scale-110 duration-200"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
-      </section>
+          <div className="">
+             <div className="flex items-center justify-center">
+                <h4 className=" text-[50px] font-[800] text-left dark:text-white mt-10 font-serif">Contact Detail</h4>
+                <p className="line bg-green-400 h-[5px] sm:w-[600px] sm:mt-[60px] sm:ml-[50px]"></p>
+             </div>
+             <div className="flex gap-5 items-center mt-5 relative">
+              <h3 className=" text-green-400 font-[800] text-[30px]">Email:</h3>
+              <p  onClick={() => copyToClipboard('kyawminhtway288@gmail.com')} className="font-[500] text-[30px] cursor-pointer">kyawminhtway288@gmail.com</p>
+              {tooltipVisible && (
+                  <div className="absolute top-full mt-2 bg-gray-800 text-white text-sm p-2 rounded shadow-lg">
+                    Email copied to clipboard!
+                  </div>
+                )}
+             </div>
+
+             <div className="flex gap-5 items-center mt-5">
+                <h3 className="text-green-400 font-[800] text-[30px]">GitHub:</h3>
+                <a 
+                  href="https://github.com/kyawminht/" 
+                  className="font-[500] text-[30px] hover:underline hover:underline-offset-2 hover:text-green-400" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  https://github.com/kyawminht/
+                </a>
+              </div>
+
+          </div>
+       </div>
     </div>
   );
 };
