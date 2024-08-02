@@ -1,7 +1,7 @@
 import React from "react";
 import EImage from "../assets/e-commerce.png";
 import PImage1 from "../assets/p2.png";
-import PImage2 from "../assets/pokemondocs.png";
+import PImage2 from "../assets/meal.png";
 
 const Project = () => {
   return (
@@ -98,17 +98,16 @@ const Project = () => {
           </div>
           <div className="p-6 h-[250px]">
             <h6 className="text-xl font-bold">
-              Pokemon API documentation project
+              The Meal App
             </h6>
             <p className="text-base text-neutral-600 dark:text-neutral-200">
-              I developed a simple Pokémon API with Laravel. At the same time, I
-              got an idea to develop a website for API documentation with React.
+            In this app, users can search for meals by name, by letters (A, B, C, etc.), and by ingredients. I used the Meal DB API and Vue.js with Pinia for global state management to create a seamless experience.
             </p>
           </div>
 
           <div className="flex justify-center mb-5">
             <a
-              href="https://pokemon-api-docs.vercel.app/docs"
+              href="https://meal-app-silk-one.vercel.app/"
               target="_blank"
               rel="noreferrer"
               className="bg-red-500 font-serif font-extrabold text-white p-4 rounded-md shadow-md hover:scale-105 duration-150 mx-3 text-sm"
@@ -116,7 +115,7 @@ const Project = () => {
               View Website
             </a>
             <a
-              href="https://github.com/kyawminht/pokemon_api_docs"
+              href="https://github.com/kyawminht/Meal-App"
               target="_blank"
               rel="noreferrer"
               className="bg-red-500 font-serif font-extrabold text-white p-4 rounded-md shadow-md hover:scale-105 duration-150 text-sm"
