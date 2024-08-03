@@ -61,16 +61,15 @@ const Nav = () => {
             </div>
             <a href={linkedinProfileUrl} target="_blank" rel="noopener noreferrer"  className=" rounded-full bg-slate-200 hover:scale-150 transition-all m-3 cursor-pointer animate__animated animate__fadeInRight duration-200 ">
           
-            <FaLinkedin className="text-5xl p-3 " />
+            <FaLinkedin className="text-4xl p-2 " />
             </a>
 
             <div className=" rounded-full bg-slate-200 hover:scale-150 transition-all m-3 cursor-pointer animate__animated animate__fadeInRight duration-200">
-            <TfiEmail className=' text-5xl p-3 ' onClick={handleClick}/>
+            <TfiEmail className=' text-4xl p-2 ' onClick={handleClick}/>
             </div>
-        </div>
 
-        <label
-          className="relative inline-flex items-center cursor-pointer "
+            <label
+          className="relative inline-flex items-center cursor-pointer m-3"
           onClick={toggleMode}
         >
           
@@ -82,6 +81,9 @@ const Nav = () => {
           
         </label>
 
+        </div>
+
+      
       </NavbarCollapse>
     </Navbar>
   );

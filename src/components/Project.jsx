@@ -6,16 +6,16 @@ import { FaEye } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 const Project = () => {
   return (
-    <div className="mb-5 scroll-smooth" id="project">
+    <div className="mb-5 scroll-smooth  sm:p-0 p-[15px]" id="project">
       <div className="">
-        <p className=" text-left text-green-400 text-2xl sm:ml-[250px]">
+        <p className=" text-left text-primary text-2xl sm:ml-[250px]">
           Glimpse into My Work
         </p>
        <div className="flex items-center">
        <h4 className=" sm:ml-[250px] text-[50px] font-[800] text-left dark:text-white mt-10 font-serif">
         Projects
         </h4>
-        <p className="line bg-green-400 h-[5px] sm:w-[1000px] sm:ml-[240px] sm:mt-[60px]"></p>
+        <p className="line bg-primary h-[5px] sm:w-[1000px] sm:ml-[240px] sm:mt-[60px]"></p>
        </div>
       </div>
 
@@ -38,7 +38,7 @@ const Project = () => {
               href="https://kmh.shwemmhost.com/"
               target="_blank"
               rel="noreferrer"
-              className=" bg-green-400 text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 mx-3 text-sm border-2 border-black dark:border-white"
+              className=" bg-primary text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 mx-3 text-sm border-2 border-black dark:border-white"
             >
              <FaEye />
             </a>
@@ -46,7 +46,7 @@ const Project = () => {
               href="https://github.com/kyawminht/e-commerce"
               rel="noreferrer"
               target="_blank"
-              className=" bg-green-400 text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 text-sm border-2 border-black dark:border-white"
+              className=" bg-primary text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 text-sm border-2 border-black dark:border-white"
             >
               <FaGithub />
             </a>
@@ -70,7 +70,7 @@ const Project = () => {
               href="https://simple-cart-management-vvhz.vercel.app/"
               rel="noreferrer"
               target="_blank"
-              className=" bg-green-400 text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 mx-3 text-sm border-2 border-black dark:border-white"
+              className=" bg-primary text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 mx-3 text-sm border-2 border-black dark:border-white"
               >
                <FaEye />
             </a>
@@ -78,7 +78,7 @@ const Project = () => {
               href="https://github.com/kyawminht/simple-cart-management/blob/main/README.md"
               rel="noreferrer"
               target="_blank"
-              className=" bg-green-400 text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 text-sm border-2 border-black dark:border-white"
+              className=" bg-primary text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 text-sm border-2 border-black dark:border-white"
               >
                 <FaGithub />
             </a>
@@ -104,7 +104,7 @@ const Project = () => {
               href="https://meal-app-silk-one.vercel.app/"
               target="_blank"
               rel="noreferrer"
-              className=" bg-green-400 text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 mx-3 text-sm border-2 border-black dark:border-white"
+              className=" bg-primary text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 mx-3 text-sm border-2 border-black dark:border-white"
               >
                <FaEye />
             </a>
@@ -112,7 +112,7 @@ const Project = () => {
               href="https://github.com/kyawminht/Meal-App"
               target="_blank"
               rel="noreferrer"
-              className=" bg-green-400 text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 text-sm border-2 border-black dark:border-white"
+              className=" bg-primary text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 text-sm border-2 border-black dark:border-white"
               >
                 <FaGithub />
             </a>

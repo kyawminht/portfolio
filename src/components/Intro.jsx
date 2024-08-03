@@ -9,16 +9,14 @@ const Intro = () => {
         },
       };
   return (
-    <div className=' mt-5 scroll-smooth w-full container mx-auto' id="intro">
-        <div className="grid justify-center m-10">
-        <span className="text-red-500 dark:text-white text-2xl">
-         Please go through my introduction video
-        </span>
-        <h4 className="text-3xl font-bold font dark:text-white mt-10 font-serif">
-          Thank you for learning about me
-        </h4>
+    <div className='  sm:p-0 p-[15px] mt-[60px] mb-[160px] scroll-smooth w-full sm:w-[1170px] mx-auto' id="intro">
+        <div className="mt-10">
+        <div className="flex justify-start items-center">
+          <p className="line bg-primary h-[5px] sm:w-[250px] sm:ml-[-340px] sm:mt-[60px]"></p>
+          <h4 className=" text-left text-[50px] font-[800] dark:text-white mt-10 font-serif sm:ml-[90px]">My Introduction Video</h4>
       </div>
-      <div className="w-full md:p-[100px] p-0">
+      </div>
+      <div className="w-full p-0 my-5 border-8 border-primary">
         <YouTube videoId="VSl3gCDWRSM" opts={videoOptions}/>
       </div>
 
