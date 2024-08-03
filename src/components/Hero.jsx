@@ -14,7 +14,9 @@ const Hero = () => {
         
         <div className=" bg-primary sm:ml-[-0px] flex justify-start items-center mt-5 border-4 border-primary cursor-pointer hover:scale-105 duration-150">
        <a href="#intro" className=' duration-200 hover:scale-200 bg-slate-800 p-4 text-white font-serif font-extrabold text-center sm:w-[450px] w-[250px]'>Intro Video</a>
-       <FaArrowRight className=' text-[30px] sm:ml-[50px] ml-[40px] cursor-pointer hover:scale-125 duration-150' />
+        <a href="#intro">
+        <FaArrowRight className=' text-[30px] sm:ml-[50px] ml-[40px] cursor-pointer hover:scale-125 duration-150' />
+        </a>
        </div>
 
       </div>
