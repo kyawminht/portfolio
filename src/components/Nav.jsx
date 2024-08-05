@@ -3,10 +3,11 @@ import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from 'f
 import { Sun, Moon } from 'lucide-react';
 import { FaLinkedin } from 'react-icons/fa';
 import { TfiEmail } from "react-icons/tfi";
-
+import { FaGithub } from "react-icons/fa";
 const Nav = () => {
   const emailAddress = 'kyawminhtway288@gmail.com';
   const linkedinProfileUrl = 'https://www.linkedin.com/in/kyaw-min-htwe-99839b244/';
+  const gitHubProfileUrl = 'https://github.com/kyawminht/';
   const handleClick = () => {
     window.location.href = `mailto:${emailAddress}`;
   };
@@ -38,7 +39,7 @@ const Nav = () => {
     };
   }, []);
   return (
-    <Navbar rounded className={` z-10 rounded ${isSticky ? ' bg-black sticky top-0 shadow-md' : ' bg-black'}`}>
+    <Navbar rounded className={` z-10 rounded md:w-[1170px] xl:w-full ${isSticky ? ' bg-black sticky top-0 shadow-md' : ' bg-black '}`}>
       <NavbarBrand >
         <span className="self-center whitespace-nowrap text-xl font-semibold text-white">kyaw min htwe</span> 
       </NavbarBrand>
@@ -60,10 +61,11 @@ const Nav = () => {
               </p>
             </div>
             <a href={linkedinProfileUrl} target="_blank" rel="noopener noreferrer"  className=" rounded-full bg-slate-200 hover:scale-150 transition-all m-3 cursor-pointer animate__animated animate__fadeInRight duration-200 ">
-          
             <FaLinkedin className="text-4xl p-2 " />
             </a>
-
+            <a href={gitHubProfileUrl} target="_blank" rel="noopener noreferrer"  className=" rounded-full bg-slate-200 hover:scale-150 transition-all m-3 cursor-pointer animate__animated animate__fadeInRight duration-200 ">
+            <FaGithub className="text-4xl p-2 " />
+            </a>
             <div className=" rounded-full bg-slate-200 hover:scale-150 transition-all m-3 cursor-pointer animate__animated animate__fadeInRight duration-200">
             <TfiEmail className=' text-4xl p-2 ' onClick={handleClick}/>
             </div>

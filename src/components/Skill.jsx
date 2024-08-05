@@ -3,12 +3,13 @@ import { TiHtml5 } from "react-icons/ti";
 import { FaReact } from "react-icons/fa";
 import { IoLogoCss3,IoLogoJavascript  } from "react-icons/io5";
 import { SiTailwindcss } from "react-icons/si";
-import { FaBootstrap,FaPhp,FaLaravel,FaGitSquare } from "react-icons/fa";
+import { FaBootstrap,FaPhp,FaLaravel } from "react-icons/fa";
 import { SiAmazonapigateway,SiMysql } from "react-icons/si";
-import { FaDatabase } from "react-icons/fa6";
+import { FaVuejs } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 const Skill = () => {
   return (
-    <div className="  sm:p-0 p-[15px] mt-[100px] mb-[160px] scroll-smooth sm:w-[1170px] mx-auto" id="skill">
+    <div className="  sm:p-0 p-[15px] mt-[100px] mb-[160px] scroll-smooth sm:w-[1170px] mx-auto md:p-[30px]" id="skill">
       <div className=" ">
         <p className=" text-left text-primary text-2xl dark:text-white">Learn About My Skill Diversity</p>
       <div className="flex justify-start items-center">
@@ -83,14 +84,13 @@ const Skill = () => {
               </div>
 
               <div className="flex items-center mb-3 mx-3">
-                <FaGitSquare  className="text-4xl mr-2 text-primary" />
-                <p className="text-bold text-primary">Git</p>
+              <FaGithub  className="text-4xl mr-2 text-primary" />
+              <p className="text-bold text-primary">GitHub</p>
               </div>
               <div className="flex items-center mb-3 mx-3">
-                <FaDatabase  className="text-4xl mr-0 text-primary" />
-                <p className="text-bold text-primary">Designing Database</p>
+                <FaVuejs  className="text-4xl mr-2 text-primary" />
+                <p className="text-bold text-primary">Vue JS</p>
               </div>
-
             </div>
           </div>
         </div>

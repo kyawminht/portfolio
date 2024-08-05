@@ -9,7 +9,7 @@ const Intro = () => {
         },
       };
   return (
-    <div className='  sm:p-0 p-[15px] mt-[60px] mb-[160px] scroll-smooth w-full sm:w-[1170px] mx-auto' id="intro">
+    <div className='  sm:p-0 p-[15px] mt-[60px] mb-[160px] scroll-smooth w-full sm:w-[1170px] mx-auto md:p-[30px]' id="intro">
         <div className="mt-10">
         <div className="flex justify-start items-center">
           <p className="line bg-primary h-[5px] sm:w-[250px] sm:ml-[-340px] sm:mt-[60px]"></p>

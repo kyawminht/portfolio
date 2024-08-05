@@ -6,17 +6,15 @@ import { FaEye } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 const Project = () => {
   return (
-    <div className="mb-5 scroll-smooth  sm:p-0 p-[15px]" id="project">
+    <div className="mb-5 scroll-smooth  sm:p-0 p-[15px] sm:w-[1170px] mx-auto md:p-[30px]" id="project">
       <div className="">
-        <p className=" text-left text-primary text-2xl sm:ml-[250px]">
+        <p className=" text-left text-primary text-2xl">
           Glimpse into My Work
         </p>
-       <div className="flex items-center">
-       <h4 className=" sm:ml-[250px] text-[50px] font-[800] text-left dark:text-white mt-10 font-serif">
-        Projects
-        </h4>
-        <p className="line bg-primary h-[5px] sm:w-[1000px] sm:ml-[240px] sm:mt-[60px]"></p>
-       </div>
+        <div className="flex justify-start items-center">
+      <p className="line bg-primary h-[5px] sm:w-[250px] sm:ml-[-340px] sm:mt-[60px]"></p>
+      <h4 className=" text-left text-[50px] font-[800] dark:text-white mt-10 font-serif sm:ml-[90px]">Projects</h4>
+      </div>
       </div>
 
       <div className=" sm:w-[1170px] mx-auto mt-5 container flex flex-col sm:flex-row justify-center gap-10 ">

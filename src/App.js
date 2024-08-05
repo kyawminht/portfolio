@@ -20,7 +20,6 @@ function App() {
       <Education/>
       <Project/>
       <Skill/>
-      <Contact/>
       <Intro/>
       <Foot/>
     </div>

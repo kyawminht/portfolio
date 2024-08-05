@@ -16,15 +16,14 @@ const Contact = () => {
     });
   };
   return (
-    <div className="my-10 scroll-smooth" id="contact">
+    <div className="my-10 scroll-smooth sm:w-[1170px] md:p-[30px] mx-auto" id="contact">
     <div className="flex flex-col sm:flex-row items-center sm:items-start">
       <div className="sm:ml-[200px] w-full sm:w-auto flex justify-center sm:justify-start">
         <img src={ContactImage} alt="Contact" className="w-[300px] sm:w-[400px] h-auto sm:h-[500px]" />
       </div>
       <div className="w-full sm:w-auto mt-10 sm:mt-0">
-        <div className="flex flex-col sm:flex-row items-center sm:mt-[100px]">
+        <div className="flex flex-col sm:flex-row md:flex-col items-center sm:mt-[100px]">
           <h4 className="text-[30px] sm:text-[50px] font-[800] text-center sm:text-left dark:text-white font-serif">Contact Detail</h4>
-          <p className="line bg-primary sm:ml-[130px] h-[3px] sm:h-[5px] w-[200px] sm:w-[600px] mt-2 sm:mt-[20px]"></p>
         </div>
         
         <div className="flex flex-col gap-2 items-center sm:items-start mt-5">

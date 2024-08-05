@@ -2,7 +2,7 @@ import React from 'react'
 
 const Education = () => {
   return (
-    <div className="  sm:p-0 p-[15px]  mt-[60px] mb-[160px] scroll-smooth sm:w-[1170px] mx-auto" id="skill">
+    <div className="  sm:p-0 p-[15px]  mt-[60px] mb-[160px] scroll-smooth md:p-[30px] sm:w-[1170px] mx-auto" id="skill">
       <div className=" ">
         <p className=" text-left text-primary text-2xl dark:text-white">My Educational Journey</p>
       <div className="flex justify-start items-center">
