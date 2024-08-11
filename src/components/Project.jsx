@@ -1,5 +1,5 @@
 import React from "react";
-import EImage from "../assets/e-commerce.png";
+import EImage from "../assets/pokemon.png";
 import PImage1 from "../assets/p2.png";
 import PImage2 from "../assets/meal.png";
 import { FaEye } from "react-icons/fa6";
@@ -28,12 +28,12 @@ const Project = () => {
           </div>
           <div className=" mt-3 h-[60px]">
             <h6 className="text-xl font-bold text-black dark:text-white">
-              E-commerce project with laravel
+              Pokemon API documentation project for education purpose
             </h6>
           </div>
           <div className="flex justify-center mb-5">
             <a
-              href="https://kmh.shwemmhost.com/"
+              href="https://pokemon-api-docs.vercel.app/"
               target="_blank"
               rel="noreferrer"
               className=" bg-primary text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 mx-3 text-sm border-2 border-black dark:border-white"
@@ -41,7 +41,7 @@ const Project = () => {
              <FaEye />
             </a>
             <a
-              href="https://github.com/kyawminht/e-commerce"
+              href="https://github.com/kyawminht/pokemon_api"
               rel="noreferrer"
               target="_blank"
               className=" bg-primary text-white font-serif font-extrabold p-4 rounded-full shadow-md hover:scale-105 duration-150 text-sm border-2 border-black dark:border-white"
