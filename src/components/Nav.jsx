@@ -47,14 +47,41 @@ const Nav = () => {
       <NavbarToggle />
 
       <NavbarCollapse>
-        {/* <NavbarLink href="#about" className=' text-xl hover:underline underline-offset-8 cursor-pointer transition ease-in-out delay-150 hover:scale-110 text-slate-800'>
+        <div className=" sm:flex sm:items-center sm:space-x-5">
+        <NavbarLink href="#about" className=' text-xl text-white'>
           About
         </NavbarLink>
-        <NavbarLink href="#skill" className=' text-xl hover:underline underline-offset-8 cursor-pointer transition ease-in-out delay-150 hover:scale-110 text-slate-800'>My Skills</NavbarLink>
-        <NavbarLink href="#project" className=' text-xl hover:underline underline-offset-8 cursor-pointer transition ease-in-out delay-150 hover:scale-110 text-slate-800'>My Projects</NavbarLink>
-        <NavbarLink href="#contact" className=' text-xl hover:underline underline-offset-8 cursor-pointer transition ease-in-out delay-150 hover:scale-110 text-slate-800'>Contact Me</NavbarLink> */}
+        <NavbarLink href="#skill" className=' text-xl text-white'>My Skills</NavbarLink>
+        <NavbarLink href="#project" className=' text-xl text-white'>My Projects</NavbarLink>
+        <NavbarLink href="#contact" className=' text-xl'>
+          <div className="flex flex-col sm:flex-row">
+          <a href={linkedinProfileUrl} target="_blank" rel="noopener noreferrer"  className=" rounded-full bg-slate-200 hover:scale-150 transition-all m-3 cursor-pointer animate__animated animate__fadeInRight duration-200 ">
+            <FaLinkedin className="text-4xl p-2 " />
+            </a>
+            <a href={gitHubProfileUrl} target="_blank" rel="noopener noreferrer"  className=" rounded-full bg-slate-200 hover:scale-150 transition-all m-3 cursor-pointer animate__animated animate__fadeInRight duration-200 ">
+            <FaGithub className="text-4xl p-2 " />
+            </a>
+            <div className=" rounded-full bg-slate-200 hover:scale-150 transition-all m-3 cursor-pointer animate__animated animate__fadeInRight duration-200">
+            <TfiEmail className=' text-4xl p-2 ' onClick={handleClick}/>
+            </div>
 
-        <div className=' flex justify-center items-center'>
+            <label
+          className="relative inline-flex items-center cursor-pointer m-3"
+          onClick={toggleMode}
+        >
+          
+            {isDarkMode ? (
+              <Sun className="text-yellow-500" size={20} />
+            ) : (
+              <Moon className="text-white dark:text-gray-300" size={20} />
+            )}
+          
+        </label>
+          </div>
+        </NavbarLink>
+        </div>
+
+        {/* <div className=' flex justify-center items-center'>
             <div className="">
               <p className=" text-xl text-white">
               Contact Me
@@ -83,9 +110,7 @@ const Nav = () => {
           
         </label>
 
-        </div>
-
-      
+        </div> */}
       </NavbarCollapse>
     </Navbar>
   );

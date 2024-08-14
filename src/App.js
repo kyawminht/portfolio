@@ -9,6 +9,7 @@ import Skill from './components/Skill';
 import Foot from './components/Foot';
 import Intro from './components/Intro';
 import Education from './components/Education';
+import Experience from './components/Experience';
 
 
 
@@ -17,9 +18,10 @@ function App() {
     <div className="App dark:bg-slate-800">
       <Nav/>
       <Hero/>
-      <Education/>
       <Project/>
+      <Experience/>
       <Skill/>
+      <Education/>
       <Intro/>
       <Foot/>
     </div>

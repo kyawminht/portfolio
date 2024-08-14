@@ -1,37 +1,79 @@
-import React from 'react'
-
+import React from 'react';
+import { FaStar, FaRegStar } from 'react-icons/fa';
+import EduclaasLogo from '../assets/educlass_logo.png'
 const Education = () => {
+  const educationData = [
+    {
+      degree: "Level 3 Foundation Diploma in Computing",
+      institution: "Lithan Educlaas",
+      duration: "2022 - 2023",
+      details: "Focused on foundational computing skills and programming principles.",
+      stars:4,
+      logo:EduclaasLogo,
+    },
+    {
+      degree: "Level 4 HND Diploma in Computing",
+      institution: "Lithan Educlaas",
+      duration: "2023 - 2024",
+      details: "Specialized in software development, web technologies, and database management.",
+      stars:4,
+      logo:EduclaasLogo,
+    },
+    {
+      degree: "Level 5 HND Diploma in Computing",
+      institution: "Lithan Educlaas",
+      duration: "2024 - Present",
+      details: "Specialized in software development, web technologies, and database management.",
+      stars:5,
+      logo:EduclaasLogo,
+    },
+  ];
+
   return (
-    <div className="  sm:p-0 p-[15px]  mt-[60px] mb-[160px] scroll-smooth md:p-[30px] sm:w-[1170px] mx-auto" id="skill">
-      <div className=" ">
-        <p className=" text-left text-primary text-2xl dark:text-white">My Educational Journey</p>
+    <section id="education" className="py-16 text-white sm:w-[1170px] mx-auto">
+     
+    <div className="container mx-auto px-6">
+    <div className="">
       <div className="flex justify-start items-center">
       <p className="line bg-primary h-[5px] sm:w-[250px] sm:ml-[-340px] sm:mt-[60px]"></p>
-      <h4 className=" text-left text-[50px] font-[800] dark:text-white mt-10 font-serif sm:ml-[90px]">Education & Experience</h4>
+      <h4 className=" text-left text-[50px] font-[800] text-black dark:text-white mt-10 font-serif sm:ml-[90px]">Education</h4>
       </div>
       </div>
-      
-        <div className="container mx-auto text-center my-10">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className="bg-black p-6 shadow-lg rounded">
-        <h4 className="text-2xl text-center text-primary mb-4">Education</h4>
-        <ul className="text-left text-gray-700 list-disc list-inside">
-          <li className="mb-2 text-white"><strong>Level 3 HND Diploma in Computing</strong></li>
-          <li className="mb-2 text-white"><strong>Level 4 HND Diploma in Computing</strong></li>
-        </ul>
-      </div>
-      <div className="bg-black p-6 shadow-lg rounded">
-        <h4 className="text-2xl text-primary mb-4">Experience</h4>
-        <ul className="text-left text-white list-disc list-inside">
-          <li className="mb-2 text-white"><strong>Full Stack Junior Developer at Revelio</strong> - 2 months</li>
-          <li className="mb-2"><strong>Internship Developer at Revelio</strong> - 3 months</li>
-        </ul>
-      </div>
-    </div>
-        </div>
-       
-    </div>
-  )
-}
+      <div className=" flex flex-col sm:flex-row gap-5 mt-5">
+        {educationData.map((edu, index) => (
+          <div
+            key={index}
+            className="p-6 rounded-lg border border-black hover:shadow-lg transition-shadow"
+          >
+            <div className="flex space-x-2 items-center mb-4">
+              {[...Array(5)].map((_, i) => (
+                <div key={i} className="text-primary">
+                  {i < edu.stars ? (
+                    <FaStar className="text-2xl" />
+                  ) : (
+                    <FaRegStar className="text-2xl" />
+                  )}
+                </div>
+              ))}
+            </div>
 
-export default Education
+              <div className=" text h-[160px]">
+              <h3 className="text-2xl font-semibold text-primary text-left">
+              {edu.degree}
+            </h3>
+            <p className="text-sm text-black dark:text-white text-left mt-3">{edu.duration}</p>
+            <p className="mt-4 text-black dark:text-white text-left">{edu.details}</p>
+              </div>
+            <div className=" flex flex-col items-start justify-start">
+            <p className="text-lg text-black dark:text-white text-left">{edu.institution}</p>
+            <img src={edu.logo} alt={`${edu.institution} Logo`} className="w-[100px] h-[100px] ml-[-15px]" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  );
+};
+
+export default Education;
