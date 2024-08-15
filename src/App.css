@@ -41,3 +41,42 @@
     transform: rotate(360deg);
   }
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.typing {
+  background: linear-gradient(45deg, 
+  #FF6F61,  /* Sunset Orange */
+  #FFB74D,  /* Warm Amber */
+  #4FC3F7,  /* Sky Blue */
+  #7E57C2,  /* Violet */
+  #66BB6A,  /* Greenery */
+  #FFEB3B,  /* Bright Yellow */
+  #FFA726,  /* Pumpkin Orange */
+  #29B6F6,  /* Light Blue */
+  #AB47BC,  /* Purple Orchid */
+  #FF7043,  /* Coral Red */
+  #42A5F5   /* Soft Blue */
+);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 400% 400%;
+  animation: gradientAnimation 5s ease infinite;
+}
+
+

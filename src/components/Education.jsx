@@ -36,14 +36,14 @@ const Education = () => {
     <div className="">
       <div className="flex justify-start items-center">
       <p className="line bg-primary h-[5px] sm:w-[250px] sm:ml-[-340px] sm:mt-[60px]"></p>
-      <h4 className=" text-left text-[50px] font-[800] text-black dark:text-white mt-10 font-serif sm:ml-[90px]">Education</h4>
+      <h4 className=" text-left text-[50px] font-[800] text-black dark:text-white mt-10 font-serif sm:ml-[90px] typing">Education</h4>
       </div>
       </div>
-      <div className=" flex flex-col sm:flex-row gap-5 mt-5">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
         {educationData.map((edu, index) => (
           <div
             key={index}
-            className="p-6 rounded-lg border border-black hover:shadow-lg transition-shadow"
+            className="flex flex-col p-6 rounded-lg border border-black hover:shadow-lg transition-shadow"
           >
             <div className="flex space-x-2 items-center mb-4">
               {[...Array(5)].map((_, i) => (
