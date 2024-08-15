@@ -1,6 +1,7 @@
 import React from 'react'
 import HeroImg from '../assets/pro.jpg';
 import Resume  from "../assets/kyawmin-htwe-Resume.pdf";
+import 'animate.css';
 const Hero = () => {
 
   return (
@@ -8,13 +9,17 @@ const Hero = () => {
       <section className=' scroll-smooth sm:w-[1170px] mx-auto xl:p-0 p-[15px] md:p-[30px] ' id='about'>
         <div className=" grid sm:grid-cols-12 justify-center items-center">
         <div className=' col-span-6'>
-        <p className="text-xl font-[400] mb-5 text-primary text-left">Hello Everyone.</p>
+        <p className="text-xl font-[400] mb-5 text-primary text-left animate__animated animate__bounce animate__infinite">
+            Hello Everyone.
+        </p>
         <h2 className=' text-left text-[50px] font-[800] mb-5 font dark:text-white font-serif text-primary'>I'M KYAW MIN HTWE</h2>
         <p className=" text-left font font-semibold dark:text-white text-green-400">A passionate and dedicated software developer with a love for creating innovative solutions. I specialize in web development, bringing ideas to life through code and design. Explore my portfolio and discover the possibilities!</p>
         
         <div className="flex gap-x-5 mt-5">
-          <a href="#intro" className=' bg-slate-800 p-4 text-white font-serif font-extrabold text-center w-full dark:bg-white dark:text-primary'>Intro Video</a>
-          <a href={Resume} download className='w-full bg-primary text-white font-serif font-extrabold text-center flex items-center justify-center'>DownLoad CV</a>
+        <a href="#intro" className="bg-slate-800 p-4 text-white font-serif font-extrabold text-center w-full dark:bg-white dark:text-primary">
+          Intro Video
+        </a>
+        <a href={Resume} download className='w-full bg-primary text-white font-serif font-extrabold text-center flex items-center justify-center'>DownLoad CV</a>
         </div>
       </div>
       <div className=' col-span-6 mx-auto mt-5 sm:mt-0'>

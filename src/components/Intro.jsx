@@ -1,6 +1,6 @@
 import React from 'react'
 import YouTube from 'react-youtube'
-
+import 'animate.css'
 const Intro = () => {
     const videoOptions = {
         width: '100%',
@@ -17,7 +17,7 @@ const Intro = () => {
       </div>
       </div>
       <div className="w-full p-0 my-5 border-8 border-primary">
-        <YouTube videoId="HzNehOIyjE4" opts={videoOptions}/>
+        <YouTube videoId="FJQYbIXvk78" opts={videoOptions}/>
       </div>
 
     </div>

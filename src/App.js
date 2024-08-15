@@ -10,6 +10,7 @@ import Foot from './components/Foot';
 import Intro from './components/Intro';
 import Education from './components/Education';
 import Experience from './components/Experience';
+import 'animate.css';
 
 
 
@@ -17,12 +18,12 @@ function App() {
   return (
     <div className="App dark:bg-slate-800">
       <Nav/>
-      <Hero/>
+      <Hero />
       <Project/>
       <Experience/>
       <Skill/>
       <Education/>
-      <Intro/>
+      <Intro />
       <Foot/>
     </div>
   );

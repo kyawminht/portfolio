@@ -4,6 +4,7 @@ import { Sun, Moon } from 'lucide-react';
 import { FaLinkedin } from 'react-icons/fa';
 import { TfiEmail } from "react-icons/tfi";
 import { FaGithub } from "react-icons/fa";
+import Logo from '../../src/assets/kk - Copy.png'
 const Nav = () => {
   const emailAddress = 'kyawminhtway288@gmail.com';
   const linkedinProfileUrl = 'https://www.linkedin.com/in/kyaw-min-htwe-99839b244/';
@@ -41,7 +42,7 @@ const Nav = () => {
   return (
     <Navbar rounded className={` z-10 rounded md:w-[1170px] xl:w-full ${isSticky ? ' bg-black sticky top-0 shadow-md' : ' bg-black '}`}>
       <NavbarBrand >
-        <span className="self-center whitespace-nowrap text-xl font-semibold text-white">kyaw min htwe</span> 
+        <span className="self-center whitespace-nowrap text-xl font-semibold text-white"><img src={Logo} className=' w-[100px] h-[100px] rounded-full' alt="" /></span> 
       </NavbarBrand>
 
       <NavbarToggle />
