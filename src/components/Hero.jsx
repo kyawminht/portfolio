@@ -5,7 +5,7 @@ import 'animate.css';
 const Hero = () => {
   return (
     <div className=' mt-5'>
-      <section className=' scroll-smooth sm:w-[1170px] mx-auto xl:p-0 p-[15px] md:p-[30px] ' id='about'>
+      <section className=' scroll-smooth sm:w-[1170px] mx-auto xl:p-0 p-[15px] md:p-[30px] ' id='home'>
         <div className=" grid sm:grid-cols-12 justify-center items-center">
         <div className=' col-span-6'>
         <p className="text-xl font-[400] mb-5 text-primary text-left animate__animated animate__bounce animate__infinite">

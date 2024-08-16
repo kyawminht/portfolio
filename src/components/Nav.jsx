@@ -55,6 +55,18 @@ const Nav = () => {
 
       <NavbarCollapse>
         <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-5 space-y-4 sm:space-y-0">
+        <Link
+            to="home"
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="text-xl text-white cursor-pointer"
+            activeClass="active"
+            spy={true}
+          >
+            Home
+          </Link>
+
           <Link
             to="about"
             smooth={true}

@@ -11,6 +11,7 @@ import Intro from './components/Intro';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import 'animate.css';
+import About from './components/About';
 
 
 
@@ -19,9 +20,10 @@ function App() {
     <div className="App dark:bg-slate-800">
       <Nav/>
       <Hero />
+      <About/>
+      <Skill/>
       <Project/>
       <Experience/>
-      <Skill/>
       <Education/>
       <Intro />
       <Foot/>
