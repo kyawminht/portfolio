@@ -13,6 +13,16 @@ const Project = () => {
 
   const projects = [
     {
+      id: 4,
+      title: "The Meal App",
+      detail:
+        "Application that allows users to search for meals by name, ingredient, or category. It integrates with The Meal API to provide comprehensive meal data and includes features like viewing instructional videos on YouTube.",
+      techStacks: ["Vue.js", "Tailwind CSS", "The Meal API"],
+      image: PImage2,
+      liveLink: "https://meal-app-silk-one.vercel.app/",
+      githubLink: "https://github.com/kyawminht/Meal-App",
+    },
+    {
       id: 1,
       title: "Used Car Sale Portal",
       detail:
@@ -44,16 +54,7 @@ const Project = () => {
       githubLink:
         "https://github.com/kyawminht/simple-cart-management/blob/main/README.md",
     },
-    {
-      id: 4,
-      title: "The Meal App",
-      detail:
-        "Application that allows users to search for meals by name, ingredient, or category. It integrates with The Meal API to provide comprehensive meal data and includes features like viewing instructional videos on YouTube.",
-      techStacks: ["Vue.js", "Tailwind CSS", "The Meal API"],
-      image: PImage2,
-      liveLink: "https://meal-app-silk-one.vercel.app/",
-      githubLink: "https://github.com/kyawminht/Meal-App",
-    },
+   
   ];
 
   useEffect(() => {
@@ -138,8 +139,9 @@ const Project = () => {
             <div
               key={project.id}
               className="flex-shrink-0 w-full sm:w-[370px] mx-auto overflow-hidden shadow-lg rounded-md project-card"
-              data-aos="fade-up"
-              data-aos-delay={project.id * 100} // Optional delay based on project ID
+              data-aos="flip-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
             >
               <img
                 src={project.image}

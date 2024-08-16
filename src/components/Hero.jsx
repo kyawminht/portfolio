@@ -16,9 +16,9 @@ const Hero = () => {
         
         <div className="flex gap-x-5 mt-5">
         <a href="#intro" className=" alternating-bg bg-slate-800 p-4 text-white font-serif font-extrabold text-center w-full dark:bg-white dark:text-primary hover:bg-slate-600">
-          Intro Video
+          Introduction Video
         </a>
-        <a href={Resume} download className='alternating-bg-reverse w-full bg-primary text-white font-serif font-extrabold text-center flex items-center justify-center hover:bg-green-600'>DownLoad CV</a>
+        <a href={Resume} download className='alternating-bg-reverse w-full bg-primary text-white font-serif font-extrabold text-center flex items-center justify-center hover:bg-green-600'>Download CV</a>
         </div>
       </div>
       <div className=' col-span-6 mx-auto mt-5 sm:mt-0'>

@@ -55,7 +55,7 @@ const Education = () => {
           {educationData.map((edu, index) => (
             <div
               key={index}
-              className="flex flex-col p-6 rounded-lg border border-black hover:shadow-lg transition-shadow"
+              className="flex flex-col p-6 rounded-lg border border-black hover:shadow-lg transition-shadow dark:border-white"
               data-aos="fade-up"
               data-aos-delay={`${index * 200}`}
             >
