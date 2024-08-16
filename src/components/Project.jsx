@@ -4,6 +4,8 @@ import PImage1 from "../assets/p2.png";
 import PImage2 from "../assets/meal.png";
 import UsedCar from "../assets/used_car.png";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Project = () => {
   const scrollContainer = useRef(null);
@@ -55,6 +57,12 @@ const Project = () => {
   ];
 
   useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      easing: 'ease-in-out',
+      once: false,
+    });
+
     const handleScroll = (e) => {
       e.preventDefault();
       scrollContainer.current.scrollLeft += e.deltaY * 2.5;
@@ -120,8 +128,8 @@ const Project = () => {
           </h4>
         </div>
       </div>
-       {/* Cards */}
-       <div style={{ position: "relative" }}>
+      {/* Cards */}
+      <div style={{ position: "relative" }}>
         <div
           className="overflow-x-scroll scrollbar-hide flex gap-4 md:gap-6 pb-4"
           ref={scrollContainer}
@@ -129,18 +137,20 @@ const Project = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="flex-shrink-0 w-full sm:w-[370px] mx-auto overflow-hidden shadow-lg rounded-md"
+              className="flex-shrink-0 w-full sm:w-[370px] mx-auto overflow-hidden shadow-lg rounded-md project-card"
+              data-aos="fade-up"
+              data-aos-delay={project.id * 100} // Optional delay based on project ID
             >
               <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-[200px] sm:h-[260px] border-b-2 border-primary"
               />
-              <div className="p-4 sm:p-6">
+              <div className="p-4 sm:p-6 h-[220px]">
                 <h3 className="text-base sm:text-lg font-semibold">{project.title}</h3>
                 <p className="text-sm sm:text-base">{project.detail}</p>
               </div>
-              <p className="text-xs sm:text-sm text-gray-600 mt-4">
+              <p className="text-xs sm:text-sm text-gray-600 mt-4 h-10">
                 Tech Stack: {project.techStacks.join(", ")}
               </p>
               <div className="my-2">

@@ -15,10 +15,10 @@ const Hero = () => {
         <p className=" text-left font font-semibold dark:text-white text-green-400">A passionate and dedicated software developer with a love for creating innovative solutions. I specialize in web development, bringing ideas to life through code and design. Explore my portfolio and discover the possibilities!</p>
         
         <div className="flex gap-x-5 mt-5">
-        <a href="#intro" className=" alternating-bg bg-slate-800 p-4 text-white font-serif font-extrabold text-center w-full dark:bg-white dark:text-primary">
+        <a href="#intro" className=" alternating-bg bg-slate-800 p-4 text-white font-serif font-extrabold text-center w-full dark:bg-white dark:text-primary hover:bg-slate-600">
           Intro Video
         </a>
-        <a href={Resume} download className='alternating-bg-reverse w-full bg-primary text-white font-serif font-extrabold text-center flex items-center justify-center'>DownLoad CV</a>
+        <a href={Resume} download className='alternating-bg-reverse w-full bg-primary text-white font-serif font-extrabold text-center flex items-center justify-center hover:bg-green-600'>DownLoad CV</a>
         </div>
       </div>
       <div className=' col-span-6 mx-auto mt-5 sm:mt-0'>

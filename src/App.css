@@ -72,6 +72,7 @@
   #FF7043,  /* Coral Red */
   #42A5F5   /* Soft Blue */
 );
+
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -80,3 +81,109 @@
 }
 
 
+/* Apply a subtle gradient background to the entire page */
+body {
+  background: linear-gradient(to bottom right, #f0f8ff, #e6e6fa);
+  color: #333; /* Ensure text color is readable against the light background */
+  font-family: 'Open Sans', sans-serif; /* Use a clean and modern font */
+  margin: 0;
+  padding: 0;
+}
+
+/* Add some padding to your content for better spacing */
+.container {
+  padding: 20px;
+}
+
+/* Adjusting the header section */
+header {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a slight shadow for depth */
+}
+
+/* Style for buttons */
+button {
+  background-color: #4caf50; /* Green accent color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Project Cards */
+.project-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* Lift the card on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+/* Footer styling */
+footer {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* SkillCard CSS */
+.skill-container {
+  margin: 20px 0;
+}
+
+.skill-bar {
+  background-color: #e6e6fa;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-bar > div {
+  background-color: #007bff; /* Progress bar color */
+  height: 100%;
+  width: 0;
+  border-radius: 20px;
+  transition: width 1.5s ease-in-out;
+}
+
+.skill-label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-weight: bold;
+}
+
+.skill-percentage {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-weight: bold;
+}
+
+[data-aos="width-animation"] {
+  width: 0;
+}
+
+[data-aos="width-animation"].aos-animate {
+  width: var(--aos-skill-level);
+}
+
+.active {
+  color: #2AD87F;
+  font-weight: bold;
+}
