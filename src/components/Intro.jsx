@@ -47,7 +47,7 @@ const Intro = () => {
         data-aos-delay="300"
         style={{ maxWidth: '100%', maxHeight: 'calc(100vh - 200px)' }}
       >
-        <YouTube videoId="2lLdDtH0OHc" opts={videoOptions} />
+        <YouTube videoId="awabk805kfo" opts={videoOptions} />
       </div>
     </div>
   );
