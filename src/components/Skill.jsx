@@ -8,19 +8,19 @@ import { SiTailwindcss, SiAmazonapigateway, SiMysql } from 'react-icons/si';
 import SkillCard from './SkillCard';
 
 const frontendSkills = [
-  { icon: <TfiHtml5 />, name: "HTML", level: "90%" },
-  { icon: <IoLogoCss3 />, name: "CSS", level: "85%" },
-  { icon: <IoLogoJavascript />, name: "JavaScript", level: "80%" },
-  { icon: <SiTailwindcss />, name: "Tailwind", level: "75%" },
-  { icon: <FaBootstrap />, name: "Bootstrap", level: "70%" },
-  { icon: <FaReact />, name: "React", level: "80%" },
-  { icon: <FaVuejs />, name: "Vue JS", level: "80%" },
+  { icon: <TfiHtml5 />, name: "HTML", level: "90" },
+  { icon: <IoLogoCss3 />, name: "CSS", level: "85" },
+  { icon: <IoLogoJavascript />, name: "JavaScript", level: "80" },
+  { icon: <SiTailwindcss />, name: "Tailwind", level: "75" },
+  { icon: <FaBootstrap />, name: "Bootstrap", level: "70" },
+  { icon: <FaReact />, name: "React", level: "80" },
+  { icon: <FaVuejs />, name: "Vue JS", level: "80" },
 ];
 
 const backendSkills = [
-  { icon: <FaPhp />, name: "PHP", level: "80%" },
-  { icon: <FaLaravel />, name: "Laravel", level: "80%" },
-  { icon: <SiAmazonapigateway />, name: "API", level: "75%" },
+  { icon: <FaPhp />, name: "PHP", level: "80" },
+  { icon: <FaLaravel />, name: "Laravel", level: "80" },
+  { icon: <SiAmazonapigateway />, name: "API", level: "75" },
   { icon: <SiMysql />, name: "MySQL", level: "70%" },
   { icon: <FaGithub />, name: "GitHub", level: "90%" },
 ];
