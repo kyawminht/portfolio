@@ -34,7 +34,7 @@ const AboutMe = () => {
                   <li className="flex items-center"><FaBirthdayCake className="mr-2 text-primary" /><strong>Birthday:</strong> May 15, 1993</li>
                   <li className="flex items-center"><FaLanguage className="mr-2 text-primary" /><strong>Languages:</strong> English</li>
                   <li className="flex items-center"><FaGraduationCap className="mr-2 text-primary" /><strong>Diploma:</strong> Level 3 and Level 4 HND in Computing</li>
-                  <li className="flex items-center"><FaEnvelope className="mr-2 text-primary" /><strong>Email:</strong> kyawminhtway@gmail.com</li>
+                  <li className="flex items-center"><FaEnvelope className="mr-2 text-primary" /><strong>Email:</strong> kyawminhtway288@gmail.com</li>
                   <li className="flex items-center"><FaMapMarkerAlt className="mr-2 text-primary" /><strong>City:</strong> Yangon, Myanmar</li>
                 </ul>
               </div>

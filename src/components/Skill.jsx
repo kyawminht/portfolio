@@ -6,7 +6,7 @@ import { FaBootstrap, FaPhp, FaLaravel, FaGithub, FaVuejs, FaReact } from 'react
 import { IoLogoCss3, IoLogoJavascript } from 'react-icons/io5';
 import { SiTailwindcss, SiAmazonapigateway, SiMysql } from 'react-icons/si';
 import SkillCard from './SkillCard';
-
+import { SiPostman } from "react-icons/si";
 const frontendSkills = [
   { icon: <TfiHtml5 />, name: "HTML", level: "90" },
   { icon: <IoLogoCss3 />, name: "CSS", level: "85" },
@@ -21,8 +21,9 @@ const backendSkills = [
   { icon: <FaPhp />, name: "PHP", level: "80" },
   { icon: <FaLaravel />, name: "Laravel", level: "80" },
   { icon: <SiAmazonapigateway />, name: "API", level: "75" },
-  { icon: <SiMysql />, name: "MySQL", level: "70%" },
-  { icon: <FaGithub />, name: "GitHub", level: "90%" },
+  { icon: <SiMysql />, name: "MySQL", level: "70" },
+  { icon: <FaGithub />, name: "GitHub", level: "90" },
+   { icon: <SiPostman />, name: "Postman", level: "70" },
 ];
 
 const SkillsSection = () => {
