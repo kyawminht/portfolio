@@ -156,13 +156,13 @@ const Project = () => {
                 Tech Stack: {project.techStacks.join(", ")}
               </p>
               <div className="my-2">
-                <a
+                <a target="_blank"
                   href={project.liveLink}
                   className="text-blue-500 hover:underline mr-2 text-xs sm:text-sm"
                 >
                   Live
                 </a>
-                <a
+                <a target="_blank"
                   href={project.githubLink}
                   className="text-blue-500 hover:underline text-xs sm:text-sm"
                 >
