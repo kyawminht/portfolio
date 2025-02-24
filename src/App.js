@@ -12,10 +12,44 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import 'animate.css';
 import About from './components/About';
-
-
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { initGA, trackPageView, trackScrollDepth } from './analystics';
 
 function App() {
+
+   // Initialize GA4 when the app loads
+   useEffect(() => {
+    initGA();
+    trackPageView(window.location.pathname); // Track initial page view
+  }, []);
+
+  // Scroll tracking logic
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      const totalScrollable = docHeight - windowHeight;
+      const scrolledPercentage = (scrollTop / totalScrollable) * 100;
+
+      if (scrolledPercentage >= 25) {
+        trackScrollDepth(25);
+      }
+      if (scrolledPercentage >= 50) {
+        trackScrollDepth(50);
+      }
+      if (scrolledPercentage >= 75) {
+        trackScrollDepth(75);
+      }
+      if (scrolledPercentage >= 100) {
+        trackScrollDepth(100);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className="App dark:bg-slate-800">
       <Nav/>
