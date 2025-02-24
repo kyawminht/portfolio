@@ -2,7 +2,7 @@ import ReactGA from "react-ga4";
 
 // Initialize GA4 with your Measurement ID
 export const initGA = () => {
-  ReactGA.initialize("G-XXXXXXXXXX"); // Replace with your GA4 Measurement ID
+  ReactGA.initialize("G-NWJ0W6FEK0"); // Replace with your GA4 Measurement ID
 };
 
 // Track page views
