@@ -6,11 +6,17 @@ import { TfiEmail } from 'react-icons/tfi';
 import { FaGithub } from 'react-icons/fa';
 import Logo from '../../src/assets/kk - Copy.png';
 import { Link } from 'react-scroll';
+import { trackEvent } from '../analystics';
 
 const Nav = () => {
   const emailAddress = 'kyawminhtway288@gmail.com';
   const linkedinProfileUrl = 'https://www.linkedin.com/in/kyaw-min-htwe-99839b244/';
   const gitHubProfileUrl = 'https://github.com/kyawminht/';
+
+   // Track navigation link clicks
+   const handleNavLinkClick = (section) => {
+    trackEvent("Navigation", "Link Clicked", section);
+  };
 
   const handleClick = () => {
     window.location.href = `mailto:${emailAddress}`;
@@ -63,6 +69,7 @@ const Nav = () => {
             className="text-xl text-white cursor-pointer"
             activeClass="active"
             spy={true}
+            onClick={() => handleNavLinkClick("Home")}
           >
             Home
           </Link>
@@ -75,6 +82,7 @@ const Nav = () => {
             className="text-xl text-white cursor-pointer"
             activeClass="active"
             spy={true}
+            onClick={() => handleNavLinkClick("About")}
           >
             About
           </Link>
@@ -86,6 +94,7 @@ const Nav = () => {
             className="text-xl text-white cursor-pointer"
             activeClass="active"
             spy={true}
+            onClick={() => handleNavLinkClick("Skills")}
           >
             Skills
           </Link>
@@ -97,6 +106,7 @@ const Nav = () => {
             className="text-xl text-white cursor-pointer"
             activeClass="active"
             spy={true}
+            onClick={() => handleNavLinkClick("Projects")}
           >
             Projects
           </Link>
@@ -108,6 +118,7 @@ const Nav = () => {
             className="text-xl text-white cursor-pointer"
             activeClass="active"
             spy={true}
+            onClick={() => handleNavLinkClick("experience")}
           >
             Experience
           </Link>
@@ -119,6 +130,7 @@ const Nav = () => {
             className="text-xl text-white cursor-pointer"
             activeClass="active"
             spy={true}
+            onClick={() => handleNavLinkClick("Education")}
           >
             Education
           </Link>
