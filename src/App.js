@@ -24,8 +24,9 @@ function App() {
     trackPageView(window.location.pathname); // Track initial page view
   }, []);
 
-  // Scroll tracking logic
-  useEffect(() => {
+   // Scroll tracking logic
+   useEffect(() => {
+    const trackedPercentages = [25, 50, 75, 100]; // Track these percentages
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const windowHeight = window.innerHeight;
@@ -33,23 +34,21 @@ function App() {
       const totalScrollable = docHeight - windowHeight;
       const scrolledPercentage = (scrollTop / totalScrollable) * 100;
 
-      if (scrolledPercentage >= 25) {
-        trackScrollDepth(25);
-      }
-      if (scrolledPercentage >= 50) {
-        trackScrollDepth(50);
-      }
-      if (scrolledPercentage >= 75) {
-        trackScrollDepth(75);
-      }
-      if (scrolledPercentage >= 100) {
-        trackScrollDepth(100);
-      }
+      trackedPercentages.forEach((percentage) => {
+        if (
+          scrolledPercentage >= percentage &&
+          !window[`scrolled_${percentage}`]
+        ) {
+          trackScrollDepth(percentage);
+          window[`scrolled_${percentage}`] = true; // Mark as tracked
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <div className="App dark:bg-slate-800">
       <Nav/>
