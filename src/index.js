@@ -1,20 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM, { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HelmetProvider } from 'react-helmet-async';
-document.title="kyaw min htwe"
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+// Create root instance
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+// Hybrid rendering logic
+const renderApp = () => (
   <HelmetProvider>
     <App />
   </HelmetProvider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+if (container.hasChildNodes()) {
+  // Hydrate in production (after react-snap prerendering)
+  root.hydrate(renderApp());
+} else {
+  // Initial render in development
+  root.render(renderApp());
+}
+
 reportWebVitals();
