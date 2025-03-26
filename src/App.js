@@ -15,7 +15,7 @@ import About from './components/About';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { initGA, trackPageView, trackScrollDepth } from './analystics';
-
+import { Helmet } from 'react-helmet-async';
 function App() {
 
   //  // Initialize GA4 when the app loads
@@ -51,6 +51,14 @@ function App() {
 
   return (
     <div className="App dark:bg-slate-800">
+       <Helmet>
+        <title>kmh|portfolio</title>
+        <meta name="description" content="Your SEO description here." />
+        <meta name="keywords" content="react, seo, vercel" />
+        <meta property="og:title" content="Your Open Graph Title" />
+        <link rel="canonical" href="https://yourdomain.com/" />
+      </Helmet>
+
       <Nav/>
       <Hero />
       <About/>

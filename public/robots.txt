@@ -1,3 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /private/  # Block private paths (if any)
+Sitemap: https://kmh-myan.vercel.app/sitemap.xml
