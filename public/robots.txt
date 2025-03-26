@@ -1,5 +1,9 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-Disallow: /private/  # Block private paths (if any)
+
+# Googlebot-specific (for SPAs)
+User-agent: Googlebot
+Allow: /*
+Disallow: /private/
+
 Sitemap: https://kmh-myan.vercel.app/sitemap.xml
