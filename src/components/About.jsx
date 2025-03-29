@@ -23,7 +23,7 @@ const AboutMe = () => {
           </h4>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-          <div className="w-full md:w-1/2 h-[260px]" data-aos="fade-right">
+          <div className="w-full md:w-1/2 h-[270px]" data-aos="fade-right">
             <div className="relative gradient-bg p-1 rounded-lg card-container">
               <div className="bg-white shadow-lg rounded-lg p-6 border-2 card">
                 <div className="badge">
@@ -40,17 +40,14 @@ const AboutMe = () => {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/2 h-[260px]" data-aos="fade-left">
+          <div className="w-full md:w-1/2 h-[270px]" >
             <div className="relative gradient-bg p-1 rounded-lg card-container">
               <div className="bg-white shadow-lg rounded-lg p-6 border-2 border-primary card">
                 <div className="badge">
                   About
                 </div>
-                <p className="text-lg mb-4">
+                <p className="text-lg mb-4 py-10">
                   Passionate Full Stack Developer currently at Revelio. Skilled in Laravel, Nuxt.js, and Vue.js, I focus on building impactful solutions and managing projects.
-                </p>
-                <p className="text-lg">
-                  My tech journey started with a fascination for computers and has evolved into a career dedicated to solving complex problems and delivering quality applications.
                 </p>
               </div>
             </div>
