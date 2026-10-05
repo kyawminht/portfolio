@@ -1,69 +1,34 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { TfiHtml5 } from 'react-icons/tfi';
-import { FaBootstrap, FaPhp, FaLaravel, FaGithub, FaVuejs, FaReact } from 'react-icons/fa';
-import { IoLogoCss3, IoLogoJavascript } from 'react-icons/io5';
-import { SiTailwindcss, SiAmazonapigateway, SiMysql } from 'react-icons/si';
+import { skillGroups } from '../data/content';
+import SectionHeading from './SectionHeading';
 import SkillCard from './SkillCard';
-import { SiPostman } from "react-icons/si";
-const frontendSkills = [
-  { icon: <TfiHtml5 />, name: "HTML", level: "90" },
-  { icon: <IoLogoCss3 />, name: "CSS", level: "85" },
-  { icon: <IoLogoJavascript />, name: "JavaScript", level: "80" },
-  { icon: <SiTailwindcss />, name: "Tailwind", level: "75" },
-  { icon: <FaBootstrap />, name: "Bootstrap", level: "70" },
-  { icon: <FaReact />, name: "React", level: "80" },
-  { icon: <FaVuejs />, name: "Vue JS", level: "80" },
-];
 
-const backendSkills = [
-  { icon: <FaPhp />, name: "PHP", level: "80" },
-  { icon: <FaLaravel />, name: "Laravel", level: "80" },
-  { icon: <SiAmazonapigateway />, name: "API", level: "75" },
-  { icon: <SiMysql />, name: "MySQL", level: "70" },
-  { icon: <FaGithub />, name: "GitHub", level: "90" },
-   { icon: <SiPostman />, name: "Postman", level: "70" },
-];
-
-const SkillsSection = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200, 
-      easing: 'ease-in-out', 
-      once: false, 
-    });
-  }, []);
-
+const Skill = () => {
   return (
-    <div className="py-8 scroll-smooth sm:p-0 p-[15px] sm:w-[1170px] mx-auto md:p-[30px]" id="skill">
-      <div>
-        <p className="text-left text-primary text-2xl">Explore My Skillset</p>
-        <div className="flex justify-start items-center">
-          <p className="line bg-primary h-[5px] sm:w-[250px] sm:ml-[-340px] sm:mt-[60px]"></p>
-          <h4 className="typing text-left text-[50px] font-[800] dark:text-white mt-10 font-serif sm:ml-[90px]">
-            Skills
-          </h4>
-        </div>
-      </div>
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-left mb-8">Frontend Skills</h2>
-        <div className="flex flex-wrap justify-center">
-          {frontendSkills.map((skill, index) => (
-            <SkillCard key={index} skill={skill} data-aos="fade-up" />
+    <section id="skill" className="section bg-slate-100/70 dark:bg-white/[0.02]">
+      <div className="container-page">
+        <SectionHeading
+          eyebrow="What I work with"
+          title="Skills & Tools"
+          description="Technologies I use day to day to design, build, and maintain web applications."
+        />
+
+        <div className="mt-12 space-y-12">
+          {skillGroups.map((group) => (
+            <div key={group.title}>
+              <h3 className="mb-5 text-lg font-semibold text-slate-800 dark:text-slate-100">
+                {group.title}
+              </h3>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {group.skills.map((skill) => (
+                  <SkillCard key={skill.name} skill={skill} />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
-      <div className="container mx-auto px-4 mt-10">
-        <h2 className="text-3xl font-bold text-left mb-8">Backend Skills</h2>
-        <div className="flex flex-wrap justify-center">
-          {backendSkills.map((skill, index) => (
-            <SkillCard key={index} skill={skill} data-aos="fade-up" />
-          ))}
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 
-export default SkillsSection;
+export default Skill;

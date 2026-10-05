@@ -1,60 +1,203 @@
-import React, { useState } from "react";
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { Check, Copy, Loader2, Mail, MapPin, Send } from 'lucide-react';
 
-import ContactImage from '../assets/contact.png';
+import { profile, socials } from '../data/content';
+import SectionHeading from './SectionHeading';
+import { trackEvent } from '../analystics';
+
+const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+const isConfigured = Boolean(SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY);
+
+const initialForm = { name: '', email: '', message: '' };
 
 const Contact = () => {
-  const [tooltipVisible, setTooltipVisible] = useState(false);
+  const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState('idle');
+  const [copied, setCopied] = useState(false);
 
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setTooltipVisible(true);
-      setTimeout(() => {
-        setTooltipVisible(false);
-      }, 2000); 
-    }, (err) => {
-      console.error('Failed to copy: ', err);
-    });
+  const handleChange = (event) => {
+    setForm((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.error('Failed to copy email:', error);
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!isConfigured) {
+      const subject = encodeURIComponent(`Portfolio enquiry from ${form.name || 'someone'}`);
+      const body = encodeURIComponent(`${form.message}\n\nReply to: ${form.email}`);
+      window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    setStatus('sending');
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: form.name,
+          reply_to: form.email,
+          message: form.message,
+        },
+        PUBLIC_KEY
+      );
+      trackEvent('Contact', 'Form Submit', 'Success');
+      setStatus('success');
+      setForm(initialForm);
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      trackEvent('Contact', 'Form Submit', 'Error');
+      setStatus('error');
+    }
+  };
+
+  const inputStyles =
+    'w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition-colors placeholder:text-slate-400 focus:border-primary dark:border-white/10 dark:bg-white/5 dark:text-slate-200';
+
   return (
-    <div className="my-10 scroll-smooth sm:w-[1170px] md:p-[30px] mx-auto" id="contact">
-    <div className="flex flex-col sm:flex-row items-center sm:items-start">
-      <div className="sm:ml-[200px] w-full sm:w-auto flex justify-center sm:justify-start">
-        <img src={ContactImage} alt="Contact" className="w-[300px] sm:w-[400px] h-auto sm:h-[500px]" />
-      </div>
-      <div className="w-full sm:w-auto mt-10 sm:mt-0">
-        <div className="flex flex-col sm:flex-row md:flex-col items-center sm:mt-[100px]">
-          <h4 className="text-[30px] sm:text-[50px] font-[800] text-center sm:text-left dark:text-white font-serif">Contact Detail</h4>
-        </div>
-        
-        <div className="flex flex-col gap-2 items-center sm:items-start mt-5">
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-5 items-center sm:items-start">
-            <h3 className="text-primary font-[800] text-[20px] sm:text-[30px]">Email:</h3>
-            <p onClick={() => copyToClipboard('kyawminhtway288@gmail.com')} className="font-[500] text-[20px] sm:text-[30px] cursor-pointer dark:text-white">
-              kyawminhtway288@gmail.com
-            </p>
-            {tooltipVisible && (
-              <div className="absolute top-full mt-2 bg-gray-800 text-white text-sm p-2 rounded shadow-lg">
-                Email copied to clipboard!
-              </div>
-            )}
-          </div>
-  
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-5 items-center sm:items-start mt-5">
-            <h3 className="text-primary font-[800] text-[20px] sm:text-[30px]">GitHub:</h3>
-            <a 
-              href="https://github.com/kyawminht/" 
-              className="font-[500] text-[20px] sm:text-[30px] hover:underline hover:underline-offset-2 hover:primary dark:text-white" 
-              target="_blank" 
-              rel="noopener noreferrer"
+    <section id="contact" className="section">
+      <div className="container-page">
+        <SectionHeading
+          eyebrow="Let's talk"
+          title="Get In Touch"
+          description="Have a project, a role, or just a question? I'd love to hear from you."
+        />
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="space-y-4" data-aos="fade-right">
+            <button
+              type="button"
+              onClick={handleCopy}
+              className="card flex w-full items-center gap-4 p-5 text-left transition-colors hover:border-primary"
             >
-              https://github.com/kyawminht/
-            </a>
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary-dark dark:text-primary">
+                <Mail size={18} />
+              </span>
+              <span className="flex-1">
+                <span className="block text-xs uppercase tracking-wide text-slate-400">
+                  Email
+                </span>
+                <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                  {profile.email}
+                </span>
+              </span>
+              {copied ? (
+                <Check size={17} className="text-primary-dark dark:text-primary" />
+              ) : (
+                <Copy size={17} className="text-slate-400" />
+              )}
+            </button>
+
+            <div className="card flex items-center gap-4 p-5">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary-dark dark:text-primary">
+                <MapPin size={18} />
+              </span>
+              <span>
+                <span className="block text-xs uppercase tracking-wide text-slate-400">
+                  Location
+                </span>
+                <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                  {profile.location}
+                </span>
+              </span>
+            </div>
+
+            <div className="card p-5">
+              <span className="block text-xs uppercase tracking-wide text-slate-400">
+                Find me online
+              </span>
+              <div className="mt-3 flex gap-3">
+                {socials.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-600 transition-colors hover:border-primary hover:text-primary-dark dark:border-white/10 dark:text-slate-300 dark:hover:text-primary"
+                  >
+                    <social.icon />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
+
+          <form onSubmit={handleSubmit} className="card p-6 sm:p-8" data-aos="fade-left">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <input
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                placeholder="Your name"
+                className={inputStyles}
+              />
+              <input
+                name="email"
+                type="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                placeholder="Your email"
+                className={inputStyles}
+              />
+            </div>
+            <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              required
+              rows={5}
+              placeholder="Tell me about your project..."
+              className={`${inputStyles} mt-4 resize-none`}
+            />
+
+            <button
+              type="submit"
+              disabled={status === 'sending'}
+              className="btn-primary mt-4 w-full disabled:cursor-not-allowed disabled:opacity-70"
+            >
+              {status === 'sending' ? (
+                <>
+                  <Loader2 size={16} className="animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Send size={16} />
+                  Send message
+                </>
+              )}
+            </button>
+
+            {status === 'success' && (
+              <p className="mt-3 text-center text-sm font-medium text-primary-dark dark:text-primary">
+                Thanks! Your message has been sent.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="mt-3 text-center text-sm font-medium text-red-500">
+                Something went wrong. Please email me directly at {profile.email}.
+              </p>
+            )}
+          </form>
         </div>
       </div>
-    </div>
-  </div>
-  
+    </section>
   );
 };
 

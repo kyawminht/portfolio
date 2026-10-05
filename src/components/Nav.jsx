@@ -1,165 +1,147 @@
-import React, { useEffect, useState } from 'react';
-import { Navbar, NavbarBrand, NavbarCollapse, NavbarToggle } from 'flowbite-react';
-import { Sun, Moon } from 'lucide-react';
-import { FaLinkedin } from 'react-icons/fa';
-import { TfiEmail } from 'react-icons/tfi';
-import { FaGithub } from 'react-icons/fa';
-import Logo from '../../src/assets/kk - Copy.png';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
+import { Menu, X, Sun, Moon, Download } from 'lucide-react';
+
+import { profile, navLinks, socials } from '../data/content';
 import { trackEvent } from '../analystics';
 
 const Nav = () => {
-  const emailAddress = 'kyawminhtway288@gmail.com';
-  const linkedinProfileUrl = 'https://www.linkedin.com/in/kyaw-min-htwe-99839b244/';
-  const gitHubProfileUrl = 'https://github.com/kyawminht/';
-
-   // Track navigation link clicks
-   const handleNavLinkClick = (section) => {
-    trackEvent("Navigation", "Link Clicked", section);
-  };
-
-  const handleClick = () => {
-    window.location.href = `mailto:${emailAddress}`;
-  };
-
-  const [isDarkMode, setIsDarkMode] = useState(
-    localStorage.getItem('mode') === 'dark' || false
-  );
+  const [isDark, setIsDark] = useState(() => {
+    const stored = localStorage.getItem('mode');
+    if (stored) return stored === 'dark';
+    return window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+  });
+  const [isSticky, setIsSticky] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDarkMode);
-    localStorage.setItem('mode', isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
-
-  const toggleMode = () => {
-    setIsDarkMode((prevMode) => !prevMode);
-  };
-
-  const [isSticky, setSticky] = useState(false);
+    document.documentElement.classList.toggle('dark', isDark);
+    localStorage.setItem('mode', isDark ? 'dark' : 'light');
+  }, [isDark]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setSticky(window.scrollY > 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    const onScroll = () => setIsSticky(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const handleLink = (label) => {
+    trackEvent('Navigation', 'Link Clicked', label);
+    setIsOpen(false);
+  };
+
   return (
-    <Navbar rounded className={`z-10 rounded md:w-[1170px] xl:w-full ${isSticky ? 'bg-gray-400 sticky top-0 shadow-md' : 'bg-gray-400'}`}>
-      <NavbarBrand>
-        <span className="self-center whitespace-nowrap text-xl text-white">
-          <p className='text-3xl rounded-full text-white' >KMH</p>
-        </span>
-      </NavbarBrand>
-
-      <NavbarToggle />
-
-      <NavbarCollapse>
-        <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-5 space-y-4 sm:space-y-0">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
+        isSticky
+          ? 'border-slate-200/80 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-ink/80'
+          : 'border-transparent bg-transparent'
+      }`}
+    >
+      <nav className="container-page flex h-16 items-center justify-between">
         <Link
-            to="home"
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className="text-xl text-white cursor-pointer text-left"
-            activeClass="active"
-            spy={true}
-            onClick={() => handleNavLinkClick("Home")}
-          >
-            Home
-          </Link>
+          to="home"
+          smooth
+          duration={500}
+          offset={-70}
+          onClick={() => handleLink('Home')}
+          className="flex cursor-pointer items-center gap-2 text-lg font-extrabold tracking-tight text-slate-900 dark:text-white"
+        >
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-sm font-black text-white">
+            {profile.initials}
+          </span>
+          <span className="hidden sm:block">{profile.name}</span>
+        </Link>
 
-          <Link
-            to="about"
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className="text-xl text-white cursor-pointer  text-left"
-            activeClass="active"
-            spy={true}
-            onClick={() => handleNavLinkClick("About")}
-          >
-            About
-          </Link>
-          <Link
-            to="skill"
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className="text-xl text-white cursor-pointer  text-left"
-            activeClass="active"
-            spy={true}
-            onClick={() => handleNavLinkClick("Skills")}
-          >
-            Skills
-          </Link>
-          <Link
-            to="project"
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className="text-xl text-white cursor-pointer  text-left"
-            activeClass="active"
-            spy={true}
-            onClick={() => handleNavLinkClick("Projects")}
-          >
-            Projects
-          </Link>
-          <Link
-            to="experience"
-            smooth={true}
-            offset={-70}
-            duration={500} 
-            className="text-xl text-white cursor-pointer  text-left"
-            activeClass="active"
-            spy={true}
-            onClick={() => handleNavLinkClick("experience")}
-          >
-            Experience
-          </Link>
-          <Link
-            to="education"
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className="text-xl text-white cursor-pointer  text-left"
-            activeClass="active"
-            spy={true}
-            onClick={() => handleNavLinkClick("Education")}
-          >
-            Education
-          </Link>
-          <div className="text-xl flex flex-row justify-start gap-x-4">
-                <a href={linkedinProfileUrl} target="_blank" rel="noopener noreferrer"
-                  className="rounded-full bg-slate-200 w-[40px] h-[40px] hover:scale-110 transition-all cursor-pointer flex items-center justify-center p-2">
-                  <FaLinkedin className="text-2xl" />
-                </a>
-                <a href={gitHubProfileUrl} target="_blank" rel="noopener noreferrer"
-                  className="rounded-full bg-slate-200 w-[40px] h-[40px] hover:scale-110 transition-all cursor-pointer flex items-center justify-center p-2">
-                  <FaGithub className="text-2xl" />
-                </a>
-                <div className="rounded-full bg-slate-200 w-[40px] h-[40px] hover:scale-110 transition-all cursor-pointer flex items-center justify-center p-2">
-                  <TfiEmail className="text-2xl" onClick={handleClick} />
-                </div>
-                <label className="rounded-full bg-slate-200 w-[40px] h-[40px] hover:scale-110 transition-all cursor-pointer flex items-center justify-center p-2"
-                      onClick={toggleMode}>
-                  {isDarkMode ? (
-                    <Sun className="text-yellow-500" size={20} />
-                  ) : (
-                    <Moon className="text-white dark:text-gray-300" size={20} />
-                  )}
-                </label>
-              </div>
-
-
+        <div className="hidden items-center gap-7 lg:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              smooth
+              spy
+              offset={-70}
+              duration={500}
+              activeClass="nav-link-active"
+              onClick={() => handleLink(link.label)}
+              className="link-nav"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
-      </NavbarCollapse>
-    </Navbar>
+
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Toggle theme"
+            onClick={() => setIsDark((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-600 transition-colors hover:border-primary hover:text-primary-dark dark:border-white/10 dark:text-slate-300 dark:hover:text-primary"
+          >
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          <a
+            href={profile.resume}
+            download
+            className="btn-primary hidden !px-4 !py-2.5 sm:inline-flex"
+            onClick={() => trackEvent('Resume', 'Download', 'Navbar')}
+          >
+            <Download size={16} />
+            Resume
+          </a>
+
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            onClick={() => setIsOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 lg:hidden dark:border-white/10 dark:text-white"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </nav>
+
+      <div
+        className={`overflow-hidden border-slate-200 bg-white transition-[max-height] duration-300 lg:hidden dark:border-white/10 dark:bg-ink ${
+          isOpen ? 'max-h-96 border-t' : 'max-h-0'
+        }`}
+      >
+        <div className="container-page flex flex-col gap-1 py-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              smooth
+              spy
+              offset={-70}
+              duration={500}
+              activeClass="nav-link-active"
+              onClick={() => handleLink(link.label)}
+              className="link-nav rounded-lg px-3 py-3 hover:bg-slate-100 dark:hover:bg-white/5"
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <div className="mt-2 flex items-center gap-3 px-3">
+            {socials.map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-600 dark:border-white/10 dark:text-slate-300"
+              >
+                <social.icon />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </header>
   );
 };
 

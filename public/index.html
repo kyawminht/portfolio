@@ -4,70 +4,64 @@
     <meta charset="utf-8" />
     <link rel="icon" href="./profile.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#0B1120" />
+    <link rel="apple-touch-icon" href="./profile.ico" />
+
     <title>Kyaw Min Htwe | Full-Stack Developer Portfolio</title>
-    <meta 
-      name="description" 
-      content="Portfolio of Kyaw Min Htwe, a Full-Stack Developer specializing in React, Node.js, and modern web development. Check out my projects and skills." 
+    <meta
+      name="description"
+      content="Portfolio of Kyaw Min Htwe, a Full-Stack Developer specializing in Laravel, Vue.js, React, and modern web development."
     />
-    <meta 
-      name="keywords" 
-      content="fullstack developer, web developer, React, Node.js, JavaScript, portfolio, kyaw min htwe" 
+    <meta
+      name="keywords"
+      content="fullstack developer, web developer, React, Vue.js, Laravel, Node.js, portfolio, Kyaw Min Htwe"
     />
     <meta property="og:title" content="Kyaw Min Htwe | Full-Stack Developer" />
-    <meta 
-      property="og:description" 
-      content="Explore my projects and skills as a Full-Stack Developer." 
+    <meta
+      property="og:description"
+      content="Explore the projects, skills and experience of Kyaw Min Htwe, a Full-Stack Developer."
     />
     <meta property="og:url" content="https://kmh-myan.vercel.app/" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://kmh-myan.vercel.app/static/media/pro.0ce4e49bd45c8ca81728.jpg" />
+    <meta
+      property="og:image"
+      content="https://kmh-myan.vercel.app/static/media/pro.0ce4e49bd45c8ca81728.jpg"
+    />
     <link rel="canonical" href="https://kmh-myan.vercel.app/" />
-    <link rel="apple-touch-icon" href="./profile.ico" />
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Kyaw Min Htwe | Full-Stack Developer",
-      "description": "Portfolio of Kyaw Min Htwe, specializing in React, Node.js, and modern web development.",
-      "url": "https://kmh-myan.vercel.app/",
-      "hasPart": [
-        {
-          "@type": "WebPageElement",
-          "name": "About",
-          "url": "https://kmh-myan.vercel.app/#about",
-          "description": "Learn about Kyaw Min Htwe's background and skills."
-        },
-        {
-          "@type": "WebPageElement",
-          "name": "Projects",
-          "url": "https://kmh-myan.vercel.app/#projects",
-          "description": "Kyaw Min Htwe's projects in React, Node.js, and full-stack development."
-        },
-        {
-          "@type": "WebPageElement",
-          "name": "Skills",
-          "url": "https://kmh-myan.vercel.app/#skills"
-        },
-        {
-          "@type": "WebPageElement",
-          "name": "Contact",
-          "url": "https://kmh-myan.vercel.app/#contact"
-        }
-      ]
-    }
-    </script>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWJ0W6FEK0"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-NWJ0W6FEK0');
+      (function () {
+        try {
+          var stored = localStorage.getItem('mode');
+          var dark =
+            stored === 'dark' ||
+            (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
     </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kyaw Min Htwe",
+        "jobTitle": "Full-Stack Developer",
+        "url": "https://kmh-myan.vercel.app/",
+        "email": "mailto:kyawminhtway288@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Yangon",
+          "addressCountry": "Myanmar"
+        },
+        "knowsAbout": ["React", "Vue.js", "Laravel", "Nuxt.js", "MySQL", "REST APIs"],
+        "sameAs": [
+          "https://github.com/kyawminht/",
+          "https://www.linkedin.com/in/kyaw-min-htwe-99839b244/"
+        ]
+      }
+    </script>
+
   </head>
 
   <body>

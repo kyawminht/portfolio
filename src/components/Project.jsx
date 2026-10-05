@@ -1,203 +1,82 @@
-import React, { useRef, useState, useEffect } from "react";
-import EImage from "../assets/pokemon.png";
-import PImage1 from "../assets/p2.png";
-import PImage2 from "../assets/meal.png";
-import UsedCar from "../assets/used_car.png";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { ArrowUpRight, Github } from 'lucide-react';
+
+import { projects } from '../data/content';
+import SectionHeading from './SectionHeading';
+import { trackEvent } from '../analystics';
 
 const Project = () => {
-  const scrollContainer = useRef(null);
-  const [showPreviousButton, setShowPreviousButton] = useState(false);
-
-  const projects = [
-    {
-      id: 4,
-      title: "The Meal App",
-      detail:
-        "Application that allows users to search for meals by name, ingredient, or category. It integrates with The Meal API to provide comprehensive meal data and includes features like viewing instructional videos on YouTube.",
-      techStacks: ["Vue.js", "Tailwind CSS", "The Meal API"],
-      image: PImage2,
-      liveLink: "https://meal-app-silk-one.vercel.app/",
-      githubLink: "https://github.com/kyawminht/Meal-App",
-    },
-    {
-      id: 1,
-      title: "Used Car Sale Portal",
-      detail:
-        "A comprehensive full-stack application built with Laravel and Vue.js. Users can list their cars for sale, place bids, and track their transactions. Admins have full control to manage users, car listings, and bid pricing, making it easy to oversee and manage the entire platform.",
-      techStacks: ["Laravel", "Vue.js", "Tailwind CSS", "MySQL"],
-      image: UsedCar,
-      liveLink: "https://used-car-sale-portal-frontend.vercel.app/",
-      githubLink:
-        "https://github.com/kyawminht/used-car-sale-portal_frontend",
-    },
-    {
-      id: 2,
-      title: "Pokemon API Documentation",
-      detail:
-        "An educational project designed to provide detailed documentation of a Pokemon API. This resource is ideal for students and developers looking to learn about API calls and endpoints, with clear examples and explanations for each endpoint.",
-      techStacks: ["Laravel", "React.js", "Tailwind CSS"],
-      image: EImage,
-      liveLink: "https://pokemon-api-docs.vercel.app/",
-      githubLink: "https://github.com/kyawminht/pokemon_api",
-    },
-    {
-      id: 3,
-      title: "Simple Cart Management App",
-      detail:
-        "A straightforward e-commerce application where users can view products, add them to a cart, and manage their purchases. It uses the Fakestore API for real-time product data, making it a practical tool for understanding basic cart management functionalities.",
-      techStacks: ["React.js", "Tailwind CSS", "Fakestore API"],
-      image: PImage1,
-      liveLink: "https://simple-cart-management-vvhz.vercel.app/",
-      githubLink:
-        "https://github.com/kyawminht/simple-cart-management/blob/main/README.md",
-    },
-   
-  ];
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1200,
-      easing: 'ease-in-out',
-      once: false,
-    });
-
-    const handleScroll = (e) => {
-      e.preventDefault();
-      scrollContainer.current.scrollLeft += e.deltaY * 2.5;
-      setShowPreviousButton(
-        scrollContainer.current.scrollLeft >
-          scrollContainer.current.offsetWidth * 0.25
-      );
-    };
-
-    const container = scrollContainer.current;
-    if (container) {
-      container.addEventListener("wheel", handleScroll);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener("wheel", handleScroll);
-      }
-    };
-  }, []);
-
-  const scrollPrevious = () => {
-    scrollContainer.current.scrollTo({
-      left: scrollContainer.current.scrollLeft - scrollContainer.current.offsetWidth * 0.5,
-      behavior: "smooth",
-    });
-    setShowPreviousButton(
-      scrollContainer.current.scrollLeft >
-        scrollContainer.current.offsetWidth * 0.25
-    );
-  };
-
-  const scrollNext = () => {
-    scrollContainer.current.scrollTo({
-      left: scrollContainer.current.scrollLeft + scrollContainer.current.offsetWidth * 0.5,
-      behavior: "smooth",
-    });
-    setShowPreviousButton(
-      scrollContainer.current.scrollLeft >
-        scrollContainer.current.offsetWidth * 0.25,
-    );
-  };
-
-  const buttonStyles = {
-    position: "absolute",
-    top: "50%",
-    borderRadius: "999999px",
-    transform: "translateY(-50%)",
-    padding: "0.5rem",
-  };
-
   return (
-    <div
-      className="mb-5 scroll-smooth sm:p-0 p-[15px] sm:w-[1170px] mx-auto md:p-[30px]"
-      id="project"
-    >
-      <div className="">
-        <p className="text-left text-primary text-2xl">Glimpse into My Work</p>
-        <div className="flex justify-start items-center">
-          <p className="line bg-primary h-[5px] sm:w-[250px] sm:ml-[-340px] sm:mt-[60px]"></p>
-          <h4 className="typing text-left text-[50px] font-[800] dark:text-white mt-10 font-serif sm:ml-[90px]">
-            Projects
-          </h4>
-        </div>
-      </div>
-      {/* Cards */}
-      <div style={{ position: "relative" }}>
-        <div
-          className="overflow-x-scroll scrollbar-hide flex gap-4 md:gap-6 pb-4"
-          ref={scrollContainer}
-        >
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="flex-shrink-0 w-full sm:w-[370px] mx-auto overflow-hidden shadow-lg rounded-md project-card"
-              data-aos="flip-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
+    <section id="project" className="section">
+      <div className="container-page">
+        <SectionHeading
+          eyebrow="Glimpse into my work"
+          title="Featured Projects"
+          description="A selection of full-stack and front-end projects I've built and shipped."
+        />
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <article
+              key={project.title}
+              className="card group flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1.5"
+              data-aos="fade-up"
+              data-aos-delay={`${index * 100}`}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-[200px] sm:h-[260px] border-b-2 border-primary"
-              />
-              <div className="p-4 sm:p-6 h-[220px]">
-                <h3 className="text-base sm:text-lg font-semibold">{project.title}</h3>
-                <p className="text-sm sm:text-base">{project.detail}</p>
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </div>
-              <p className="text-xs sm:text-sm text-gray-600 mt-4 h-10">
-                Tech Stack: {project.techStacks.join(", ")}
-              </p>
-              <div className="my-2">
-                <a target="_blank"
-                  href={project.liveLink}
-                  className="text-blue-500 hover:underline mr-2 text-xs sm:text-sm"
-                >
-                  Live
-                </a>
-                <a target="_blank"
-                  href={project.githubLink}
-                  className="text-blue-500 hover:underline text-xs sm:text-sm"
-                >
-                  GitHub
-                </a>
+
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                  {project.title}
+                </h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  {project.detail}
+                </p>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <span key={tech} className="chip">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-6 flex items-center gap-5 border-t border-slate-100 pt-4 dark:border-white/10">
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent('Project', 'Live Click', project.title)}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-dark dark:text-primary"
+                    >
+                      Live demo
+                      <ArrowUpRight size={15} />
+                    </a>
+                  )}
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent('Project', 'GitHub Click', project.title)}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                  >
+                    <Github size={15} />
+                    Source
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
-
-        {showPreviousButton && (
-          <button
-            style={{
-              ...buttonStyles,
-              left: "-3%",
-            }}
-            className="hover:bg-green-500 bg-primary"
-            onClick={scrollPrevious}
-          >
-            <FaArrowLeft size={20} className="text-white" />
-          </button>
-        )}
-
-        <button
-          style={{
-            ...buttonStyles,
-            right: "-2%",
-          }}
-          className="hover:bg-green-500 bg-primary"
-          onClick={scrollNext}
-        >
-          <FaArrowRight size={20} className="text-white" />
-        </button>
       </div>
-    </div>
+    </section>
   );
 };
 

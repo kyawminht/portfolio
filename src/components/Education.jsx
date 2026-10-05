@@ -1,86 +1,60 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import AOS styles
-import { FaStar, FaRegStar } from 'react-icons/fa';
-import EduclaasLogo from '../assets/educlass_logo.png';
+import { GraduationCap } from 'lucide-react';
+
+import { education } from '../data/content';
+import SectionHeading from './SectionHeading';
 
 const Education = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200, 
-      easing: 'ease-in-out', 
-      once: false, 
-    });
-  }, []);
-
-  const educationData = [
-    {
-      degree: "Level 3 Foundation Diploma in Computing",
-      institution: "Lithan Educlaas",
-      duration: "2022 - 2023",
-      details: "Focused on foundational computing skills and programming principles.",
-      stars: 4,
-      logo: EduclaasLogo,
-    },
-    {
-      degree: "Level 4 HND Diploma in Computing",
-      institution: "Lithan Educlaas",
-      duration: "2023 - 2024",
-      details: "Specialized in software development, web technologies, and database management.",
-      stars: 4,
-      logo: EduclaasLogo,
-    },
-    {
-      degree: "Level 5 HND Diploma in Computing",
-      institution: "Lithan Educlaas",
-      duration: "2024 - Present",
-      details: "Specialized in software development, web technologies, and database management.",
-      stars: 5,
-      logo: EduclaasLogo,
-    },
-  ];
-
   return (
-    <section id="education" className="py-16 text-white sm:w-[1170px] mx-auto">
-      <div className="container mx-auto px-6">
-        <div className="">
-          <div className="flex justify-start items-center">
-            <p className="line line bg-primary h-[5px] sm:w-[250px] sm:ml-[-340px] sm:mt-[60px]"></p>
-            <h4 className="text-left text-[50px] font-[800] text-black dark:text-white mt-10 font-serif sm:ml-[90px] typing" data-aos="fade-up">
-              Education
-            </h4>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-          {educationData.map((edu, index) => (
+    <section id="education" className="section">
+      <div className="container-page">
+        <SectionHeading
+          eyebrow="My learning path"
+          title="Education"
+          description="Formal computing qualifications that built my software development foundation."
+        />
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {education.map((item, index) => (
             <div
-              key={index}
-              className="flex flex-col p-6 rounded-lg border border-black hover:shadow-lg transition-shadow dark:border-white"
+              key={item.degree}
+              className="card flex flex-col p-6"
               data-aos="fade-up"
-              data-aos-delay={`${index * 200}`}
+              data-aos-delay={`${index * 100}`}
             >
-              <div className="flex space-x-2 items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <div key={i} className="text-primary">
-                    {i < edu.stars ? (
-                      <FaStar className="text-2xl" />
-                    ) : (
-                      <FaRegStar className="text-2xl" />
-                    )}
-                  </div>
-                ))}
+              <div className="flex items-center justify-between">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary-dark dark:text-primary">
+                  <GraduationCap size={20} />
+                </span>
+                <span
+                  className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                    item.status === 'Completed'
+                      ? 'bg-primary/10 text-primary-dark dark:text-primary'
+                      : 'bg-amber-100 text-amber-700 dark:bg-amber-400/10 dark:text-amber-300'
+                  }`}
+                >
+                  {item.status}
+                </span>
               </div>
 
-              <div className="text h-[160px]">
-                <h3 className="text-2xl font-semibold text-primary text-left">
-                  {edu.degree}
-                </h3>
-                <p className="text-sm text-black dark:text-white text-left mt-3">{edu.duration}</p>
-                <p className="mt-4 text-black dark:text-white text-left">{edu.details}</p>
-              </div>
-              <div className="flex flex-col items-start justify-start">
-                <p className="text-lg text-black dark:text-white text-left">{edu.institution}</p>
-                <img src={edu.logo} alt={`${edu.institution} Logo`} className="w-[100px] h-[100px] ml-[-15px]" />
+              <h3 className="mt-5 text-lg font-bold leading-snug text-slate-900 dark:text-white">
+                {item.degree}
+              </h3>
+              <p className="mt-1 text-sm font-medium text-primary-dark dark:text-primary">
+                {item.duration}
+              </p>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                {item.details}
+              </p>
+
+              <div className="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4 dark:border-white/10">
+                <img
+                  src={item.logo}
+                  alt={`${item.institution} logo`}
+                  className="h-9 w-9 rounded-lg object-contain"
+                />
+                <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+                  {item.institution}
+                </span>
               </div>
             </div>
           ))}

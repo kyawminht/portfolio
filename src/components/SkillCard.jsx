@@ -1,25 +1,27 @@
-import React from 'react';
-
-
 const SkillCard = ({ skill }) => {
   return (
-    <div className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-6">
-      <div className="rounded-lg p-6 text-center shadow-lg bg-white" data-aos="fade-up">
-        <div className="text-4xl mb-4">{skill.icon}</div>
-        <h4 className="text-xl font-semibold text-black text-left mb-2">{skill.name}</h4>
-        <div className="h-2 w-full bg-gray-700 rounded-full overflow-hidden skill-bar">
-          <div
-            className="bg-green-400 h-full rounded-full"
-            style={{
-              '--aos-skill-level': skill.level,
-              width: `${skill.level}%`,
-            }}
-            data-aos="width-animation"
-            data-aos-delay="200"
-          />
-          <div className="running-bar" />
+    <div
+      className="card flex items-center gap-4 p-5 transition-transform duration-300 hover:-translate-y-1"
+      data-aos="fade-up"
+    >
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-2xl text-primary-dark dark:text-primary">
+        <skill.icon />
+      </span>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center justify-between">
+          <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-100">
+            {skill.name}
+          </h4>
+          <span className="text-xs font-medium text-slate-400">{skill.level}%</span>
         </div>
-        <p className="mt-2 text-gray-400 skill-level">{skill.level}%</p>
+        <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+          <div
+            className="h-full rounded-full bg-gradient-to-r from-primary-dark to-primary-light"
+            style={{ '--skill-level': `${skill.level}%` }}
+            data-aos="width-animation"
+            data-aos-delay="150"
+          />
+        </div>
       </div>
     </div>
   );

@@ -1,55 +1,39 @@
-import React, { useEffect } from 'react';
 import YouTube from 'react-youtube';
-import 'aos/dist/aos.css'; 
-import AOS from 'aos';
+
+import { profile } from '../data/content';
+import SectionHeading from './SectionHeading';
+
+const videoOptions = {
+  width: '100%',
+  height: '100%',
+  playerVars: { autoplay: 0, rel: 0 },
+};
 
 const Intro = () => {
-  const videoOptions = {
-    width: '100%',
-    playerVars: {
-      autoplay: 0,
-    },
-  };
-
-  useEffect(() => {
-    // Initialize AOS
-    AOS.init({
-      duration: 1200,
-      easing: 'ease-in-out',
-      once: false, 
-    });
-  }, []);
-
   return (
-    <div
-      className="sm:p-0 p-[15px] mt-[60px] mb-[160px] scroll-smooth w-full sm:w-[1170px] mx-auto md:p-[30px]"
-      id="intro"
-    >
-      <div className="mt-10">
-        <div className="flex justify-start items-center">
-          <p
-            className="line bg-primary h-[5px] sm:w-[250px] sm:ml-[-340px] sm:mt-[60px]"
-            data-aos="fade-in"
-            data-aos-delay="100"
-          ></p>
-          <h4
-            className="typing text-left text-[50px] font-[800] dark:text-white mt-10 font-serif sm:ml-[90px]"
-            data-aos="fade-in"
-            data-aos-delay="200"
-          >
-            Introduction Video
-          </h4>
+    <section id="intro" className="section bg-slate-100/70 dark:bg-white/[0.02]">
+      <div className="container-page">
+        <SectionHeading
+          eyebrow="Hear it from me"
+          title="Introduction Video"
+          description="A short introduction to who I am, what I build, and how I work."
+        />
+
+        <div
+          className="mt-12 overflow-hidden rounded-3xl border border-slate-200 bg-black shadow-soft dark:border-white/10"
+          data-aos="zoom-in"
+        >
+          <div className="aspect-video w-full">
+            <YouTube
+              videoId={profile.videoId}
+              opts={videoOptions}
+              className="h-full w-full"
+              iframeClassName="h-full w-full"
+            />
+          </div>
         </div>
       </div>
-      <div
-        className="w-full p-0 my-5 border-8 border-primary rounded-lg shadow-lg overflow-hidden"
-        data-aos="fade-in"
-        data-aos-delay="300"
-        style={{ maxWidth: '100%', maxHeight: 'calc(100vh - 200px)' }}
-      >
-        <YouTube videoId="awabk805kfo" opts={videoOptions} />
-      </div>
-    </div>
+    </section>
   );
 };
 
