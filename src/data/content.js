@@ -3,7 +3,7 @@ import roadSafetyImg from '../assets/road_safety.png';
 import universityGuideImg from '../assets/university_guide.png';
 import sdgDashboardImg from '../assets/sdg_dashboard.png';
 import clinicQueueImg from '../assets/clinic_queue.png';
-import educlassLogo from '../assets/educlass_logo.png';
+import pearsonLogo from '../assets/pearson_logo.png';
 import roehamptonLogo from '../assets/roehampton_logo.png';
 
 import { TfiHtml5, TfiEmail } from 'react-icons/tfi';
@@ -186,27 +186,27 @@ export const education = [
   },
   {
     degree: 'Level 3 Foundation Diploma in Computing',
-    institution: 'Lithan Educlaas',
+    institution: 'Pearson',
     duration: '2022 – 2023',
     details: 'Focused on foundational computing skills and programming principles.',
     status: 'Completed',
-    logo: educlassLogo,
+    logo: pearsonLogo,
   },
   {
     degree: 'Level 4 HND Diploma in Computing',
-    institution: 'Lithan Educlaas',
+    institution: 'Pearson',
     duration: '2023 – 2024',
     details: 'Specialized in software development, web technologies, and database management.',
     status: 'Completed',
-    logo: educlassLogo,
+    logo: pearsonLogo,
   },
   {
     degree: 'Level 5 HND Diploma in Computing',
-    institution: 'Lithan Educlaas',
+    institution: 'Pearson',
     duration: '2024 – 2025',
     details: 'Specialized in software development, web technologies, and database management.',
     status: 'Completed',
-    logo: educlassLogo,
+    logo: pearsonLogo,
   },
 ];
 
